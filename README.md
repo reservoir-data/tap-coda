@@ -1,6 +1,6 @@
 # `tap-coda`
 
-Coda tap class.
+`tap-coda` is a Singer tap for Coda, built with the Meltano SDK for Singer Taps.
 
 Built with the [Meltano SDK](https://sdk.meltano.com) for Singer Taps and Targets.
 

@@ -32,7 +32,7 @@ STREAM_TYPES: List[Type[CodaStream]] = [
 
 
 class TapCoda(Tap):
-    """Coda tap class."""
+    """`tap-coda` is a Singer tap for Coda, built with the Meltano SDK for Singer Taps."""
 
     name = "tap-coda"
     config_jsonschema = th.PropertiesList(
