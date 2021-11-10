@@ -1,0 +1,19 @@
+version: 1
+send_anonymous_usage_stats: true
+project_id: 7597513c-48d9-4deb-a188-41a7aefbbbc5
+plugins:
+  extractors:
+  - name: tap-coda
+    namespace: tap_coda
+    executable: ./tap-coda.sh
+    capabilities:
+    - catalog
+    - discover
+    settings:
+    - name: auth_token
+      kind: password
+      description: Coda Auth Token
+  loaders:
+  - name: target-jsonl
+    variant: andyh1203
+    pip_url: target-jsonl
