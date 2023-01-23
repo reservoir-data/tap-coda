@@ -1,11 +1,11 @@
 """Coda tap class."""
 
-from typing import List, Type
+from __future__ import annotations
 
 import requests
-from jsonschema.validators import RefResolver
 from singer_sdk import Tap
 from singer_sdk import typing as th
+from singer_sdk._singerlib import resolve_schema_references
 
 from tap_coda.streams import (
     CodaStream,
@@ -19,7 +19,7 @@ from tap_coda.streams import (
     Tables,
 )
 
-STREAM_TYPES: List[Type[CodaStream]] = [
+STREAM_TYPES: list[type[CodaStream]] = [
     Docs,
     Pages,
     Formulas,
@@ -32,7 +32,7 @@ STREAM_TYPES: List[Type[CodaStream]] = [
 
 
 class TapCoda(Tap):
-    """`tap-coda` is a Singer tap for Coda, built with the Meltano SDK for Singer Taps."""
+    """Singer tap for Coda, built with the Meltano SDK for Singer Taps."""
 
     name = "tap-coda"
     config_jsonschema = th.PropertiesList(
@@ -44,24 +44,29 @@ class TapCoda(Tap):
         ),
     ).to_dict()
 
-    def __init__(self, *args, **kwargs) -> None:
-        self.openapi = self.get_openapi()
-        self.resolver = RefResolver("", self.openapi)
-        super().__init__(*args, **kwargs)
-
     @staticmethod
     def get_openapi() -> dict:
+        """Retrieve the OpenAPI spec for the API.
+
+        Returns:
+            The OpenAPI spec dictionary.
+        """
         response = requests.get("https://coda.io/apis/v1/openapi.json")
         response.raise_for_status()
         return response.json()
 
-    def discover_streams(self) -> List[CodaStream]:
-        """Return a list of discovered streams."""
+    def discover_streams(self) -> list[CodaStream]:
+        """Return a list of discovered streams.
+
+        Returns:
+            A list of streams.
+        """
         streams = []
+        openapi_schema = self.get_openapi()
+
         for stream_class in STREAM_TYPES:
-            stream = stream_class(
-                tap=self,
-                schema=stream_class.get_schema(self.openapi, self.resolver),
-            )
-            streams.append(stream)
+            schema = {"$ref": f"#/components/schemas/{stream_class.openapi_ref}"}
+            schema["components"] = openapi_schema["components"]
+            resolved_schema = resolve_schema_references(schema)
+            streams.append(stream_class(tap=self, schema=resolved_schema))
         return streams
