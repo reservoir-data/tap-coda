@@ -1,0 +1,42 @@
+name: Test tap-coda
+
+on: [push]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    env:
+      PIP_CONSTRAINT: .github/workflows/constraints.txt
+    strategy:
+      matrix:
+        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3.2.0
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4.4.0
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Upgrade pip
+      run: |
+        pip install pip
+        pip --version
+
+    - name: Install Poetry
+      run: |
+        pipx install poetry
+        poetry --version
+
+    - name: Install tox
+      run: |
+        pipx install tox
+        tox --version
+
+    - name: Run tests
+      env:
+        TAP_CODA_AUTH_TOKEN: ${{ secrets.TAP_CODA_AUTH_TOKEN }}
+      run: |
+        tox -e pytest

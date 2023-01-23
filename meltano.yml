@@ -1,11 +1,11 @@
 version: 1
-send_anonymous_usage_stats: true
+send_anonymous_usage_stats: false
 project_id: 7597513c-48d9-4deb-a188-41a7aefbbbc5
 plugins:
   extractors:
   - name: tap-coda
     namespace: tap_coda
-    executable: ./tap-coda.sh
+    pip_url: -e .
     capabilities:
     - catalog
     - discover
