@@ -432,21 +432,21 @@ testing = ["flufl.flake8", "importlib-resources (>=1.3)", "packaging", "pep517",
 
 [[package]]
 name = "importlib-resources"
-version = "5.10.1"
+version = "5.10.2"
 description = "Read resources from Python packages"
 category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "importlib_resources-5.10.1-py3-none-any.whl", hash = "sha256:c09b067d82e72c66f4f8eb12332f5efbebc9b007c0b6c40818108c9870adc363"},
-    {file = "importlib_resources-5.10.1.tar.gz", hash = "sha256:32bb095bda29741f6ef0e5278c42df98d135391bee5f932841efc0041f748dc3"},
+    {file = "importlib_resources-5.10.2-py3-none-any.whl", hash = "sha256:7d543798b0beca10b6a01ac7cafda9f822c54db9e8376a6bf57e0cbd74d486b6"},
+    {file = "importlib_resources-5.10.2.tar.gz", hash = "sha256:e4a96c8cc0339647ff9a5e0550d9f276fc5a01ffa276012b58ec108cfd7b8484"},
 ]
 
 [package.dependencies]
 zipp = {version = ">=3.1.0", markers = "python_version < \"3.10\""}
 
 [package.extras]
-docs = ["furo", "jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx (>=3.5)"]
+docs = ["furo", "jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-lint"]
 testing = ["flake8 (<5)", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.3)", "pytest-flake8", "pytest-mypy (>=0.9.1)"]
 
 [[package]]
@@ -1126,23 +1126,23 @@ files = [
 
 [[package]]
 name = "singer-sdk"
-version = "0.16.0"
+version = "0.18.0"
 description = "A framework for building Singer taps"
 category = "main"
 optional = false
 python-versions = ">=3.7.1,<3.12"
 files = [
-    {file = "singer_sdk-0.16.0-py3-none-any.whl", hash = "sha256:0b440c318cfb976718c6988a4776d26afa4b475dc8e21b75f7865cba8b037874"},
-    {file = "singer_sdk-0.16.0.tar.gz", hash = "sha256:dbf151cbf07c950b36e1e9df21e9916fe942b1848aefd7900743a14e186e2043"},
+    {file = "singer_sdk-0.18.0-py3-none-any.whl", hash = "sha256:1f68c3378fa9f89389088eff74ecd2066fe19a4547308eefb241ad66cf132807"},
+    {file = "singer_sdk-0.18.0.tar.gz", hash = "sha256:e0a49dfda8b4e183fefa2a932d21cb99584ade5cb8d5897b88fe5d77754aba28"},
 ]
 
 [package.dependencies]
 backoff = ">=2.0.0,<3.0"
 click = ">=8.0,<9.0"
-cryptography = ">=3.4.6,<39.0.0"
+cryptography = ">=3.4.6,<40.0.0"
 fs = ">=2.4.16,<3.0.0"
 importlib-metadata = {version = "<5.0.0", markers = "python_version < \"3.8\""}
-importlib-resources = {version = "5.10.1", markers = "python_version < \"3.9\""}
+importlib-resources = {version = "5.10.2", markers = "python_version < \"3.9\""}
 inflection = ">=0.5.1,<0.6.0"
 joblib = ">=1.0.1,<2.0.0"
 jsonpath-ng = ">=1.5.3,<2.0.0"
@@ -1440,4 +1440,4 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "2.0"
 python-versions = "<3.11,>=3.7.1"
-content-hash = "bd96deac7b4a4c622f16712bf24209d434a4eb5c35c7cc1ab61cdebee52b2a5c"
+content-hash = "89557775f5eef4b4c9ce174143f64dae98866630c2365419d60072517833be2c"
