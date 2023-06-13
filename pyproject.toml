@@ -14,8 +14,8 @@ keywords = [
 license = "Apache 2.0"
 
 [tool.poetry.dependencies]
-python = "<3.12,>=3.7.1"
-singer-sdk = "==0.28.0"
+python = ">=3.7.1,<4"
+singer-sdk = "==0.33.*"
 
 [tool.poetry.group.dev.dependencies]
 singer-sdk = {version = "*", extras = ["testing"]}
@@ -25,36 +25,38 @@ types-requests = "*"
 # CLI declaration
 tap-coda = 'tap_coda.tap:TapCoda.cli'
 
-[tool.black]
-line-length = 88
-
 [tool.mypy]
 python_version = "3.10"
 warn_unused_configs = true
 
 [tool.ruff]
+line-length = 88
+src = ["tap_coda"]
+target-version = "py37"
+
+[tool.ruff.lint]
 ignore = [
   "ANN101",  # missing-type-self
   "DJ",      # flake8-django
   "FIX002",  # line-contains-todo
+  "COM812",  # missing-trailing-comma
+  "ISC001",  # single-line-implicit-string-concatenation
 ]
-line-length = 88
 select = ["ALL"]
-src = ["tap_coda"]
 unfixable = [
   "ERA001",  # commented-out-code
 ]
 
-[tool.ruff.flake8-annotations]
+[tool.ruff.lint.flake8-annotations]
 allow-star-arg-any = true
 
-[tool.ruff.isort]
+[tool.ruff.lint.isort]
 known-first-party = ["tap_coda"]
 required-imports = ["from __future__ import annotations"]
 
-[tool.ruff.per-file-ignores]
+[tool.ruff.lint.per-file-ignores]
 "noxfile.py" = ["ANN"]
 "tests/*" = ["ANN"]
 
-[tool.ruff.pydocstyle]
+[tool.ruff.lint.pydocstyle]
 convention = "google"

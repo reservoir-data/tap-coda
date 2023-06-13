@@ -57,7 +57,6 @@ class Docs(CodaStream):
             },
         }
 
-
     def get_child_context(
         self,
         record: dict,
@@ -114,6 +113,49 @@ class Formulas(_DocChild):
     name = "formulas"
     path = "/docs/{docId}/formulas"
     openapi_ref = "Formula"
+
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        """Initialize `formulas` stream."""
+        super().__init__(*args, **kwargs)
+        del self.schema["properties"]["value"]
+        self.schema["properties"]["value__string"] = {
+            "description": "A Coda result or entity expressed as a primitive type.",
+            "type": "string",
+            "example": "$12.34",
+        }
+        self.schema["properties"]["value__number"] = {
+            "description": "A Coda result or entity expressed as a primitive type.",
+            "type": "number",
+            "example": 12.34,
+        }
+        self.schema["properties"]["value__boolean"] = {
+            "description": "A Coda result or entity expressed as a primitive type.",
+            "type": "boolean",
+            "example": True,
+        }
+
+    def post_process(
+        self,
+        row: dict,
+        context: dict | None,  # noqa: ARG002
+    ) -> dict:
+        """Post-process formula records.
+
+        Args:
+            row: A formula record.
+            context: The stream context.
+
+        Returns:
+            A post-processed formula record.
+        """
+        value = row.pop("value", None)
+        if isinstance(value, str):
+            row["value__string"] = value
+        elif isinstance(value, bool):
+            row["value__boolean"] = value
+        elif isinstance(value, float):
+            row["value__number"] = value
+        return row
 
 
 class Permissions(_DocChild):
