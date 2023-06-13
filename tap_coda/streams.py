@@ -14,6 +14,50 @@ class Docs(CodaStream):
     path = "/docs"
     openapi_ref = "Doc"
 
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        """Initialize the `docs` stream."""
+        super().__init__(*args, **kwargs)
+        self.schema["properties"]["sourceDoc"] = {
+            "x-schema-name": "DocReference",
+            "description": "Reference to a Coda doc.",
+            "type": "object",
+            "required": [
+                "id",
+                "type",
+                "browserLink",
+                "href",
+            ],
+            "additionalProperties": False,
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "ID of the Coda doc.",
+                    "example": "AbCDeFGH",
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of this resource.",
+                    "enum": [
+                        "doc",
+                    ],
+                    "x-tsType": "Type.Doc",
+                },
+                "href": {
+                    "type": "string",
+                    "format": "url",
+                    "description": "API link to the Coda doc.",
+                    "example": "https://coda.io/apis/v1/docs/AbCDeFGH",
+                },
+                "browserLink": {
+                    "type": "string",
+                    "format": "url",
+                    "description": "Browser-friendly link to the Coda doc.",
+                    "example": "https://coda.io/d/_dAbCDeFGH",
+                },
+            },
+        }
+
+
     def get_child_context(
         self,
         record: dict,
