@@ -1,3 +1,7 @@
+[build-system]
+requires = ["poetry-core==1.6.1"]
+build-backend = "poetry.core.masonry.api"
+
 [tool.poetry]
 name = "tap-coda"
 version = "0.0.1"
@@ -14,20 +18,43 @@ python = "<3.12,>=3.7.1"
 singer-sdk = "==0.28.0"
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^7.3.1"
-
-[tool.black]
-line-length = 88
-
-[tool.isort]
-profile = "black"
-multi_line_output = 3 # Vertical Hanging Indent
-src_paths = "tap_coda"
-
-[build-system]
-requires = ["poetry-core>=1.0.8"]
-build-backend = "poetry.core.masonry.api"
+singer-sdk = {version = "*", extras = ["testing"]}
+types-requests = "*"
 
 [tool.poetry.scripts]
 # CLI declaration
 tap-coda = 'tap_coda.tap:TapCoda.cli'
+
+[tool.black]
+line-length = 88
+
+[tool.mypy]
+python_version = "3.10"
+warn_unused_configs = true
+
+[tool.ruff]
+ignore = [
+  "ANN101",  # missing-type-self
+  "DJ",      # flake8-django
+  "FIX002",  # line-contains-todo
+]
+line-length = 88
+select = ["ALL"]
+src = ["tap_coda"]
+unfixable = [
+  "ERA001",  # commented-out-code
+]
+
+[tool.ruff.flake8-annotations]
+allow-star-arg-any = true
+
+[tool.ruff.isort]
+known-first-party = ["tap_coda"]
+required-imports = ["from __future__ import annotations"]
+
+[tool.ruff.per-file-ignores]
+"noxfile.py" = ["ANN"]
+"tests/*" = ["ANN"]
+
+[tool.ruff.pydocstyle]
+convention = "google"

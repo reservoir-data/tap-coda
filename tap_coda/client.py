@@ -15,7 +15,7 @@ class CodaStream(RESTStream):
 
     url_base = "https://coda.io/apis/v1"
     records_jsonpath = "$.items[*]"
-    next_page_token_jsonpath = "$.nextPageToken"
+    next_page_token_jsonpath = "$.nextPageToken"  # noqa: S105
     primary_keys = ["id"]
     replication_key = None
 
@@ -27,7 +27,7 @@ class CodaStream(RESTStream):
             An authenticator for the Coda API.
         """
         return BearerTokenAuthenticator.create_for_stream(
-            self, token=self.config.get("auth_token")
+            self, token=self.config.get("auth_token"),
         )
 
     @property
@@ -44,7 +44,7 @@ class CodaStream(RESTStream):
 
     def get_url_params(
         self,
-        context: dict | None,
+        context: dict | None,  # noqa: ARG002
         next_page_token: str | None,
     ) -> dict[str, Any]:
         """Return a dictionary of values to be used in URL parameterization.

@@ -51,7 +51,7 @@ class TapCoda(Tap):
         Returns:
             The OpenAPI spec dictionary.
         """
-        response = requests.get("https://coda.io/apis/v1/openapi.json")
+        response = requests.get("https://coda.io/apis/v1/openapi.json", timeout=5)
         response.raise_for_status()
         return response.json()
 
@@ -65,8 +65,10 @@ class TapCoda(Tap):
         openapi_schema = self.get_openapi()
 
         for stream_class in STREAM_TYPES:
-            schema = {"$ref": f"#/components/schemas/{stream_class.openapi_ref}"}
-            schema["components"] = openapi_schema["components"]
+            schema = {
+                "$ref": f"#/components/schemas/{stream_class.openapi_ref}",
+                "components": openapi_schema["components"],
+            }
             resolved_schema = resolve_schema_references(schema)
             streams.append(stream_class(tap=self, schema=resolved_schema))
         return streams

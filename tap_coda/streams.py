@@ -14,7 +14,11 @@ class Docs(CodaStream):
     path = "/docs"
     openapi_ref = "Doc"
 
-    def get_child_context(self, record: dict, context: dict | None) -> dict:
+    def get_child_context(
+        self,
+        record: dict,
+        context: dict | None,  # noqa: ARG002
+    ) -> dict:
         """Get context for docs child streams.
 
         Args:
