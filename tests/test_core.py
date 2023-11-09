@@ -11,4 +11,9 @@ SAMPLE_CONFIG = {
     "start_date": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d"),
 }
 
-TestTapCoda = get_tap_test_class(TapCoda, config=SAMPLE_CONFIG)
+TestTapCoda = get_tap_test_class(
+    TapCoda,
+    config=SAMPLE_CONFIG,
+    # TODO: Enable this test after the SDK handles AllOf properties.  # noqa: TD002, TD003, E501
+    include_stream_attribute_tests=False,
+)
