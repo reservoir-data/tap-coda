@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any
+import typing as t
 
 from singer_sdk.authenticators import BearerTokenAuthenticator
 from singer_sdk.streams import RESTStream
@@ -15,8 +15,8 @@ class CodaStream(RESTStream):
 
     url_base = "https://coda.io/apis/v1"
     records_jsonpath = "$.items[*]"
-    next_page_token_jsonpath = "$.nextPageToken"
-    primary_keys = ["id"]
+    next_page_token_jsonpath = "$.nextPageToken"  # noqa: S105
+    primary_keys: t.ClassVar[list[str]] = ["id"]
     replication_key = None
 
     @property
@@ -27,7 +27,8 @@ class CodaStream(RESTStream):
             An authenticator for the Coda API.
         """
         return BearerTokenAuthenticator.create_for_stream(
-            self, token=self.config.get("auth_token")
+            self,
+            token=self.config.get("auth_token"),
         )
 
     @property
@@ -44,9 +45,9 @@ class CodaStream(RESTStream):
 
     def get_url_params(
         self,
-        context: dict | None,
+        context: dict | None,  # noqa: ARG002
         next_page_token: str | None,
-    ) -> dict[str, Any]:
+    ) -> dict[str, t.Any]:
         """Return a dictionary of values to be used in URL parameterization.
 
         Args:
@@ -56,7 +57,7 @@ class CodaStream(RESTStream):
         Returns:
             A dictionary of URL query parameters.
         """
-        params: dict[str, Any] = {
+        params: dict[str, t.Any] = {
             "limit": 100,
         }
         if next_page_token:
