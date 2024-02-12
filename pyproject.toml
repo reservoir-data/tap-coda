@@ -15,7 +15,7 @@ license = "Apache 2.0"
 
 [tool.poetry.dependencies]
 python = ">=3.8,<4"
-singer-sdk = "~=0.34.1"
+singer-sdk = "~=0.35.0"
 
 [tool.poetry.group.dev.dependencies]
 singer-sdk = {version = "*", extras = ["testing"]}
