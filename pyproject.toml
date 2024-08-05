@@ -27,6 +27,7 @@ cffi = { version = ">=1.17.0rc1", python = ">=3.13" }
 singer-sdk = "~=0.39.0"
 
 [tool.poetry.group.dev.dependencies]
+mypy = ">=1.11.1"
 singer-sdk = {version = "*", extras = ["testing"]}
 types-requests = "*"
 
@@ -35,8 +36,9 @@ types-requests = "*"
 tap-coda = 'tap_coda.tap:TapCoda.cli'
 
 [tool.mypy]
-python_version = "3.10"
+python_version = "3.12"
 warn_unused_configs = true
+warn_unused_ignores = true
 
 [tool.ruff]
 line-length = 88

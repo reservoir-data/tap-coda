@@ -2,9 +2,12 @@
 
 from __future__ import annotations
 
-from typing import Any
+import typing as t
 
 from tap_coda.client import CodaStream
+
+if t.TYPE_CHECKING:
+    from singer_sdk.helpers.types import Context
 
 
 class Docs(CodaStream):
@@ -14,7 +17,7 @@ class Docs(CodaStream):
     path = "/docs"
     openapi_ref = "Doc"
 
-    def __init__(self, *args: Any, **kwargs: Any) -> None:
+    def __init__(self, *args: t.Any, **kwargs: t.Any) -> None:
         """Initialize the `docs` stream."""
         super().__init__(*args, **kwargs)
         self.schema["properties"]["sourceDoc"] = {
@@ -60,7 +63,7 @@ class Docs(CodaStream):
     def get_child_context(
         self,
         record: dict,
-        context: dict | None,  # noqa: ARG002
+        context: Context | None,  # noqa: ARG002
     ) -> dict:
         """Get context for docs child streams.
 
@@ -77,7 +80,7 @@ class Docs(CodaStream):
 class _DocChild(CodaStream):
     parent_stream_type = Docs
 
-    def __init__(self, *args: Any, **kwargs: Any) -> None:
+    def __init__(self, *args: t.Any, **kwargs: t.Any) -> None:
         """Initialize a stream with `docs` as parent stream.
 
         Args:
@@ -114,7 +117,7 @@ class Formulas(_DocChild):
     path = "/docs/{docId}/formulas"
     openapi_ref = "Formula"
 
-    def __init__(self, *args: Any, **kwargs: Any) -> None:
+    def __init__(self, *args: t.Any, **kwargs: t.Any) -> None:
         """Initialize `formulas` stream."""
         super().__init__(*args, **kwargs)
         del self.schema["properties"]["value"]
@@ -137,8 +140,8 @@ class Formulas(_DocChild):
     def post_process(
         self,
         row: dict,
-        context: dict | None,  # noqa: ARG002
-    ) -> dict:
+        context: Context | None = None,  # noqa: ARG002
+    ) -> dict | None:
         """Post-process formula records.
 
         Args:
@@ -165,7 +168,7 @@ class Permissions(_DocChild):
     path = "/docs/{docId}/acl/permissions"
     openapi_ref = "Permission"
 
-    def __init__(self, *args: Any, **kwargs: Any) -> None:
+    def __init__(self, *args: t.Any, **kwargs: t.Any) -> None:
         """Initialize a stream with `docs` as parent stream.
 
         Args:
@@ -183,7 +186,7 @@ class Tables(_DocChild):
     path = "/docs/{docId}/tables"
     openapi_ref = "Table"
 
-    def get_child_context(self, record: dict, context: dict | None) -> dict:
+    def get_child_context(self, record: dict, context: Context | None) -> dict:
         """Get context for tables child streams.
 
         Args:
@@ -199,10 +202,10 @@ class Tables(_DocChild):
         }
 
 
-class _TableChild(_DocChild):
+class _TableChild(CodaStream):
     parent_stream_type = Tables
 
-    def __init__(self, *args: Any, **kwargs: Any) -> None:
+    def __init__(self, *args: t.Any, **kwargs: t.Any) -> None:
         """Initialize a stream with `tables` as parent stream.
 
         Args:
@@ -224,7 +227,7 @@ class Columns(_TableChild):
     parent_stream_type = Tables
     openapi_ref = "Column"
 
-    def __init__(self, *args: Any, **kwargs: Any) -> None:
+    def __init__(self, *args: t.Any, **kwargs: t.Any) -> None:
         """Initialize a stream with `docs` as parent stream.
 
         Args:
@@ -243,7 +246,7 @@ class Rows(_TableChild):
     parent_stream_type = Tables
     openapi_ref = "Row"
 
-    def __init__(self, *args: Any, **kwargs: Any) -> None:
+    def __init__(self, *args: t.Any, **kwargs: t.Any) -> None:
         """Initialize a stream with `docs` as parent stream.
 
         Args:
