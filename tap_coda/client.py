@@ -7,6 +7,9 @@ import typing as t
 from singer_sdk.authenticators import BearerTokenAuthenticator
 from singer_sdk.streams import RESTStream
 
+if t.TYPE_CHECKING:
+    from singer_sdk.helpers.types import Context
+
 
 class CodaStream(RESTStream):
     """Coda stream class."""
@@ -28,7 +31,7 @@ class CodaStream(RESTStream):
         """
         return BearerTokenAuthenticator.create_for_stream(
             self,
-            token=self.config.get("auth_token"),
+            token=self.config["auth_token"],
         )
 
     @property
@@ -45,7 +48,7 @@ class CodaStream(RESTStream):
 
     def get_url_params(
         self,
-        context: dict | None,  # noqa: ARG002
+        context: Context | None,  # noqa: ARG002
         next_page_token: str | None,
     ) -> dict[str, t.Any]:
         """Return a dictionary of values to be used in URL parameterization.

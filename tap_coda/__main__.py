@@ -2,6 +2,6 @@
 
 from __future__ import annotations
 
-from tap_stackexchange.tap import TapStackExchange
+from tap_coda.tap import TapCoda
 
-TapStackExchange.cli()
+TapCoda.cli()
