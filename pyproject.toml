@@ -1,5 +1,5 @@
 [build-system]
-requires = ["poetry-core==1.9.1"]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
@@ -35,7 +35,6 @@ types-requests = "*"
 tap-coda = 'tap_coda.tap:TapCoda.cli'
 
 [tool.mypy]
-python_version = "3.12"
 warn_unused_configs = true
 warn_unused_ignores = true
 
