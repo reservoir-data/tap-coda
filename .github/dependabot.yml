@@ -11,8 +11,6 @@ updates:
       interval: "weekly"
       time: "10:00"
       timezone: "America/Mexico_City"
-    reviewers:
-      - "edgarrmondragon"
     labels:
       - "dependencies"
     commit-message:
@@ -31,8 +29,6 @@ updates:
     schedule:
       interval: "monthly"
       timezone: "America/Mexico_City"
-    reviewers:
-      - "edgarrmondragon"
     commit-message:
       prefix: "ci: "
     groups:
@@ -44,8 +40,6 @@ updates:
     schedule:
       interval: "monthly"
       timezone: "America/Mexico_City"
-    reviewers:
-      - "edgarrmondragon"
     commit-message:
       prefix: "ci: "
     groups:
