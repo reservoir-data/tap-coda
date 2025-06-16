@@ -22,7 +22,7 @@ license = "Apache-2.0"
 
 [tool.poetry.dependencies]
 python = ">=3.9"
-singer-sdk = "~=0.46.0"
+singer-sdk = "~=0.47.0"
 
 [tool.poetry.group.dev.dependencies]
 mypy = ">=1.11.1"
