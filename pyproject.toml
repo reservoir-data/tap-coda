@@ -8,11 +8,10 @@ version = "0.0.1"
 description = "Singer tap for Coda, built with the Meltano SDK for Singer Taps."
 authors = ["Edgar Ramírez-Mondragón <edgarrm358@gmail.com>"]
 classifiers = [
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
 ]
 keywords = [
     "ELT",
@@ -21,7 +20,7 @@ keywords = [
 license = "Apache-2.0"
 
 [tool.poetry.dependencies]
-python = ">=3.9"
+python = ">=3.11"
 singer-sdk = "~=0.47.0"
 
 [tool.poetry.group.dev.dependencies]
@@ -40,11 +39,10 @@ warn_unused_ignores = true
 [tool.ruff]
 line-length = 88
 src = ["tap_coda"]
-target-version = "py39"
+target-version = "py311"
 
 [tool.ruff.lint]
 ignore = [
-  "ANN101",  # missing-type-self
   "DJ",      # flake8-django
   "FIX002",  # line-contains-todo
   "COM812",  # missing-trailing-comma

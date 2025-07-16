@@ -8,9 +8,7 @@ from singer_sdk.testing import get_standard_tap_tests
 
 from tap_coda.tap import TapCoda
 
-SAMPLE_CONFIG = {
-    "start_date": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
-}
+SAMPLE_CONFIG = {"start_date": datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%d")}
 
 
 # Run standard built-in tap tests from the SDK:
