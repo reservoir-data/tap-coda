@@ -5,7 +5,7 @@ from __future__ import annotations
 import requests
 from singer_sdk import Tap
 from singer_sdk import typing as th
-from singer_sdk._singerlib import resolve_schema_references
+from singer_sdk.singerlib import resolve_schema_references
 
 from tap_coda.streams import (
     CodaStream,
