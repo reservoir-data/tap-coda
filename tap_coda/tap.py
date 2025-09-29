@@ -2,42 +2,27 @@
 
 from __future__ import annotations
 
-import sys
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, override
 
 import requests
 from singer_sdk import Tap
 from singer_sdk import typing as th
 from singer_sdk.singerlib import resolve_schema_references
 
-if sys.version_info >= (3, 12):
-    from typing import override
-else:
-    from typing_extensions import override
+from tap_coda import streams
 
 if TYPE_CHECKING:
     from tap_coda.client import CodaStream
 
-from tap_coda.streams import (
-    Columns,
-    Controls,
-    Docs,
-    Formulas,
-    Pages,
-    Permissions,
-    Rows,
-    Tables,
-)
-
 STREAM_TYPES: list[type[CodaStream]] = [
-    Docs,
-    Pages,
-    Formulas,
-    Controls,
-    Permissions,
-    Tables,
-    Columns,
-    Rows,
+    streams.Docs,
+    streams.Pages,
+    streams.Formulas,
+    streams.Controls,
+    streams.Permissions,
+    streams.Tables,
+    streams.Columns,
+    streams.Rows,
 ]
 
 

@@ -2,18 +2,12 @@
 
 from __future__ import annotations
 
-import sys
-import typing as t
+from typing import TYPE_CHECKING, Any, override
 
 from singer_sdk.authenticators import BearerTokenAuthenticator
 from singer_sdk.streams import RESTStream
 
-if sys.version_info >= (3, 12):
-    from typing import override
-else:
-    from typing_extensions import override
-
-if t.TYPE_CHECKING:
+if TYPE_CHECKING:
     from singer_sdk.helpers.types import Context
 
 
@@ -38,9 +32,9 @@ class CodaStream(RESTStream[str]):
         self,
         context: Context | None,
         next_page_token: str | None,
-    ) -> dict[str, t.Any]:
+    ) -> dict[str, Any]:
         """Get URL parameters for the Coda API."""
-        params: dict[str, t.Any] = {
+        params: dict[str, Any] = {
             "limit": 100,
         }
         if next_page_token:
