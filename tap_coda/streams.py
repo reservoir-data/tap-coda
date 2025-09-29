@@ -88,7 +88,7 @@ class _DocChild(CodaStream):
             kwargs: Keyword arguments.
         """
         super().__init__(*args, **kwargs)
-        self._schema["properties"]["docId"] = {
+        self.schema["properties"]["docId"] = {
             "type": "string",
             "description": "Parent document ID",
         }
@@ -176,7 +176,7 @@ class Permissions(_DocChild):
             kwargs: Keyword arguments.
         """
         super().__init__(*args, **kwargs)
-        self._schema["properties"]["principal"]["type"] = "object"
+        self.schema["properties"]["principal"]["type"] = "object"
 
 
 class Tables(_DocChild):
@@ -213,7 +213,7 @@ class _TableChild(CodaStream):
             kwargs: Keyword arguments.
         """
         super().__init__(*args, **kwargs)
-        self._schema["properties"]["tableIdOrName"] = {
+        self.schema["properties"]["tableIdOrName"] = {
             "type": "string",
             "description": "Parent table ID",
         }
@@ -235,7 +235,7 @@ class Columns(_TableChild):
             kwargs: Keyword arguments.
         """
         super().__init__(*args, **kwargs)
-        self._schema["properties"]["format"]["type"] = "object"
+        self.schema["properties"]["format"]["type"] = "object"
 
 
 class Rows(_TableChild):
@@ -254,4 +254,4 @@ class Rows(_TableChild):
             kwargs: Keyword arguments.
         """
         super().__init__(*args, **kwargs)
-        self._schema["properties"]["values"].pop("additionalProperties")
+        self.schema["properties"]["values"].pop("additionalProperties")

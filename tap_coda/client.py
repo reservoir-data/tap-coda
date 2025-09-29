@@ -2,16 +2,22 @@
 
 from __future__ import annotations
 
+import sys
 import typing as t
 
 from singer_sdk.authenticators import BearerTokenAuthenticator
 from singer_sdk.streams import RESTStream
 
+if sys.version_info >= (3, 12):
+    from typing import override
+else:
+    from typing_extensions import override
+
 if t.TYPE_CHECKING:
     from singer_sdk.helpers.types import Context
 
 
-class CodaStream(RESTStream):
+class CodaStream(RESTStream[str]):
     """Coda stream class."""
 
     openapi_ref: str
@@ -19,47 +25,21 @@ class CodaStream(RESTStream):
     url_base = "https://coda.io/apis/v1"
     records_jsonpath = "$.items[*]"
     next_page_token_jsonpath = "$.nextPageToken"  # noqa: S105
-    primary_keys: t.ClassVar[list[str]] = ["id"]
+    primary_keys = ("id",)
     replication_key = None
 
     @property
+    @override
     def authenticator(self) -> BearerTokenAuthenticator:
-        """Return a new authenticator object.
+        return BearerTokenAuthenticator(token=self.config["auth_token"])
 
-        Returns:
-            An authenticator for the Coda API.
-        """
-        return BearerTokenAuthenticator.create_for_stream(
-            self,
-            token=self.config["auth_token"],
-        )
-
-    @property
-    def http_headers(self) -> dict:
-        """Return the http headers needed.
-
-        Returns:
-            A dictionary of HTTP headers.
-        """
-        headers = {}
-        if "user_agent" in self.config:
-            headers["User-Agent"] = self.config.get("user_agent")
-        return headers
-
+    @override
     def get_url_params(
         self,
-        context: Context | None,  # noqa: ARG002
+        context: Context | None,
         next_page_token: str | None,
     ) -> dict[str, t.Any]:
-        """Return a dictionary of values to be used in URL parameterization.
-
-        Args:
-            context: The stream context.
-            next_page_token: The next page value.
-
-        Returns:
-            A dictionary of URL query parameters.
-        """
+        """Get URL parameters for the Coda API."""
         params: dict[str, t.Any] = {
             "limit": 100,
         }
