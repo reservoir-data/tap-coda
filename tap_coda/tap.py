@@ -2,13 +2,23 @@
 
 from __future__ import annotations
 
+import sys
+from typing import TYPE_CHECKING
+
 import requests
 from singer_sdk import Tap
 from singer_sdk import typing as th
 from singer_sdk.singerlib import resolve_schema_references
 
+if sys.version_info >= (3, 12):
+    from typing import override
+else:
+    from typing_extensions import override
+
+if TYPE_CHECKING:
+    from tap_coda.client import CodaStream
+
 from tap_coda.streams import (
-    CodaStream,
     Columns,
     Controls,
     Docs,
@@ -40,6 +50,7 @@ class TapCoda(Tap):
             "auth_token",
             th.StringType,
             required=True,
+            secret=True,
             description="The token to authenticate against the API service.",
         ),
     ).to_dict()
@@ -55,12 +66,8 @@ class TapCoda(Tap):
         response.raise_for_status()
         return response.json()
 
+    @override
     def discover_streams(self) -> list[CodaStream]:
-        """Return a list of discovered streams.
-
-        Returns:
-            A list of streams.
-        """
         streams = []
         openapi_schema = self.get_openapi()
 

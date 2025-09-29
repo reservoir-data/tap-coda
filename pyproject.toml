@@ -1,36 +1,45 @@
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
-[tool.poetry]
+[project]
 name = "tap-coda"
 version = "0.0.1"
 description = "Singer tap for Coda, built with the Meltano SDK for Singer Taps."
-authors = ["Edgar Ramírez-Mondragón <edgarrm358@gmail.com>"]
+authors = [{ name = "Edgar Ramírez-Mondragón", email = "edgarrm358@gmail.com" }]
+requires-python = ">=3.11"
+license = "Apache-2.0"
+keywords = [
+    "ELT",
+    "Coda",
+]
 classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",
 ]
-keywords = [
-    "ELT",
-    "Coda",
+dependencies = [
+    "singer-sdk~=0.49.0",
+    "typing-extensions>=4.15.0 ; python_full_version < '3.12'",
 ]
-license = "Apache-2.0"
 
-[tool.poetry.dependencies]
-python = ">=3.11"
-singer-sdk = "~=0.47.0"
+[project.scripts]
+tap-coda = "tap_coda.tap:TapCoda.cli"
 
-[tool.poetry.group.dev.dependencies]
-mypy = ">=1.11.1"
-singer-sdk = {version = "*", extras = ["testing"]}
-types-requests = "*"
-
-[tool.poetry.scripts]
-# CLI declaration
-tap-coda = 'tap_coda.tap:TapCoda.cli'
+[dependency-groups]
+dev = [
+    { include-group = "testing" },
+    { include-group = "typing" },
+]
+testing = [
+    "singer-sdk[testing]",
+]
+typing = [
+    { include-group = "testing" },
+    "mypy>=1.11.1",
+    "types-requests",
+]
 
 [tool.mypy]
 warn_unused_configs = true
@@ -39,7 +48,6 @@ warn_unused_ignores = true
 [tool.ruff]
 line-length = 88
 src = ["tap_coda"]
-target-version = "py311"
 
 [tool.ruff.lint]
 ignore = [
@@ -66,3 +74,33 @@ required-imports = ["from __future__ import annotations"]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
+
+[tool.tox]
+min_version = "4.22"
+requires = [
+    "tox>=4.22",
+    "tox-uv",
+]
+env_list = [
+    "typing",
+    "py314",
+    "py313",
+    "py312",
+    "py311",
+]
+
+[tool.tox.env_run_base]
+runner = "uv-venv-lock-runner"
+pass_env = [
+    "GITHUB_*",
+    "TAP_CODA_*",
+]
+dependency_groups = [ "testing" ]
+commands = [ [ "pytest", { replace = "posargs", default = [ "tests" ], extend = true } ] ]
+
+[tool.tox.env.typing]
+dependency_groups = [ "testing", "typing" ]
+commands = [
+    [ "mypy", { replace = "posargs", default = [ "tap_coda", "tests" ], extend = true } ],
+    [ "ty", "check", { replace = "posargs", default = [ "tap_coda", "tests" ], extend = true } ],
+]
