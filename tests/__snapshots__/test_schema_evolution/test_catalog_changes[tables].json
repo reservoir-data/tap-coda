@@ -1,0 +1,853 @@
+{
+  "key_properties": [
+    "id"
+  ],
+  "metadata": [
+    {
+      "breadcrumb": [
+        "properties",
+        "id"
+      ],
+      "metadata": {
+        "inclusion": "automatic"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "tableType"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "href"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "browserLink"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parent"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parent",
+        "properties",
+        "id"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parent",
+        "properties",
+        "type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parent",
+        "properties",
+        "href"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parent",
+        "properties",
+        "browserLink"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parent",
+        "properties",
+        "name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parentTable"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parentTable",
+        "properties",
+        "id"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parentTable",
+        "properties",
+        "type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parentTable",
+        "properties",
+        "tableType"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parentTable",
+        "properties",
+        "href"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parentTable",
+        "properties",
+        "browserLink"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parentTable",
+        "properties",
+        "name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parentTable",
+        "properties",
+        "parent"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parentTable",
+        "properties",
+        "parent",
+        "properties",
+        "id"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parentTable",
+        "properties",
+        "parent",
+        "properties",
+        "type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parentTable",
+        "properties",
+        "parent",
+        "properties",
+        "href"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parentTable",
+        "properties",
+        "parent",
+        "properties",
+        "browserLink"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parentTable",
+        "properties",
+        "parent",
+        "properties",
+        "name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "displayColumn"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "displayColumn",
+        "properties",
+        "id"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "displayColumn",
+        "properties",
+        "type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "displayColumn",
+        "properties",
+        "href"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "rowCount"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "sorts"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "layout"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "filter"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "filter",
+        "properties",
+        "valid"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "filter",
+        "properties",
+        "isVolatile"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "filter",
+        "properties",
+        "hasUserFormula"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "filter",
+        "properties",
+        "hasTodayFormula"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "filter",
+        "properties",
+        "hasNowFormula"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "createdAt"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "updatedAt"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [],
+      "metadata": {
+        "inclusion": "available",
+        "selected": true,
+        "selected-by-default": true,
+        "table-key-properties": [
+          "id"
+        ]
+      }
+    }
+  ],
+  "replication_method": "FULL_TABLE",
+  "schema": {
+    "additionalProperties": false,
+    "description": "Metadata about a table.",
+    "properties": {
+      "browserLink": {
+        "description": "Browser-friendly link to the table.",
+        "format": "url",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "createdAt": {
+        "description": "Timestamp for when the table was created.",
+        "format": "date-time",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "displayColumn": {
+        "additionalProperties": false,
+        "description": "Reference to a column.",
+        "properties": {
+          "href": {
+            "description": "API link to the column.",
+            "format": "url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "id": {
+            "description": "ID of the column.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": {
+            "description": "The type of this resource.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "href"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "filter": {
+        "additionalProperties": false,
+        "description": "Detailed information about a formula.",
+        "properties": {
+          "hasNowFormula": {
+            "description": "Returns whether or not the given formula has a Now() formula within it.",
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "hasTodayFormula": {
+            "description": "Returns whether or not the given formula has a Today() formula within it.",
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "hasUserFormula": {
+            "description": "Returns whether or not the given formula has a User() formula within it.",
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "isVolatile": {
+            "description": "Returns whether or not the given formula can return different results in different contexts (for example, for different users).\n",
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "valid": {
+            "description": "Returns whether or not the given formula is valid.",
+            "type": [
+              "boolean",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "valid"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "href": {
+        "description": "API link to the table.",
+        "format": "url",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "id": {
+        "description": "ID of the table.",
+        "type": "string"
+      },
+      "layout": {
+        "description": "Layout type of the table or view.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "name": {
+        "description": "Name of the table.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "parent": {
+        "additionalProperties": false,
+        "description": "Reference to a page.",
+        "properties": {
+          "browserLink": {
+            "description": "Browser-friendly link to the page.",
+            "format": "url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "href": {
+            "description": "API link to the page.",
+            "format": "url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "id": {
+            "description": "ID of the page.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "name": {
+            "description": "Name of the page.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": {
+            "description": "The type of this resource.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "browserLink",
+          "href",
+          "name"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "parentTable": {
+        "additionalProperties": false,
+        "description": "Reference to a table or view.",
+        "properties": {
+          "browserLink": {
+            "description": "Browser-friendly link to the table.",
+            "format": "url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "href": {
+            "description": "API link to the table.",
+            "format": "url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "id": {
+            "description": "ID of the table.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "name": {
+            "description": "Name of the table.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "parent": {
+            "additionalProperties": false,
+            "description": "Reference to a page.",
+            "properties": {
+              "browserLink": {
+                "description": "Browser-friendly link to the page.",
+                "format": "url",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "href": {
+                "description": "API link to the page.",
+                "format": "url",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "id": {
+                "description": "ID of the page.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "name": {
+                "description": "Name of the page.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "type": {
+                "description": "The type of this resource.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "type",
+              "browserLink",
+              "href",
+              "name"
+            ],
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "tableType": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": {
+            "description": "The type of this resource.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "tableType",
+          "browserLink",
+          "href",
+          "name"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "rowCount": {
+        "description": "Total number of rows in the table.",
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "sorts": {
+        "description": "Any sorts applied to the table.",
+        "items": {
+          "additionalProperties": false,
+          "description": "A sort applied to a table or view.",
+          "properties": {
+            "column": {
+              "additionalProperties": false,
+              "description": "Reference to a column.",
+              "properties": {
+                "href": {
+                  "description": "API link to the column.",
+                  "format": "url",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "id": {
+                  "description": "ID of the column.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "type": {
+                  "description": "The type of this resource.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "type",
+                "href"
+              ],
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "direction": {
+              "description": "Direction of a sort for a table or view.",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "column",
+            "direction"
+          ],
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "type": [
+          "array",
+          "null"
+        ]
+      },
+      "tableType": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": {
+        "description": "The type of this resource.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "updatedAt": {
+        "description": "Timestamp for when the table was last modified.",
+        "format": "date-time",
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "required": [
+      "id",
+      "type",
+      "tableType",
+      "href",
+      "name",
+      "parent",
+      "browserLink",
+      "displayColumn",
+      "rowCount",
+      "sorts",
+      "layout",
+      "createdAt",
+      "updatedAt",
+      "viewId"
+    ],
+    "type": "object"
+  },
+  "stream": "tables",
+  "tap_stream_id": "tables"
+}

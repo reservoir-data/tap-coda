@@ -1,13 +1,56 @@
-"""Stream type classes for tap-coda."""
+"""Stream type classes for tap-coda."""  # noqa: CPY001
 
 from __future__ import annotations
 
-import typing as t
+from importlib import resources
+from typing import TYPE_CHECKING, Any, override
 
-from tap_coda.client import CodaStream
+from singer_sdk import OpenAPISchema, StreamSchema
+from singer_sdk.authenticators import BearerTokenAuthenticator
+from singer_sdk.streams import RESTStream
 
-if t.TYPE_CHECKING:
+from tap_coda import openapi
+
+if TYPE_CHECKING:
     from singer_sdk.helpers.types import Context
+
+
+OPENAPI_SCHEMA = OpenAPISchema[str](resources.files(openapi).joinpath("openapi.json"))
+
+
+class CodaStream(RESTStream[str]):
+    """Coda stream class."""
+
+    openapi_ref: str
+
+    url_base = "https://coda.io/apis/v1"
+    records_jsonpath = "$.items[*]"
+    next_page_token_jsonpath = "$.nextPageToken"  # noqa: S105
+    primary_keys = ("id",)
+    replication_key = None
+
+    @property
+    @override
+    def authenticator(self) -> BearerTokenAuthenticator:
+        return BearerTokenAuthenticator(token=self.config["auth_token"])
+
+    @override
+    def get_url_params(
+        self,
+        context: Context | None,
+        next_page_token: str | None,
+    ) -> dict[str, Any]:
+        """Get URL parameters for the Coda API.
+
+        Returns:
+            A dictionary of URL parameters.
+        """
+        params: dict[str, Any] = {
+            "limit": 100,
+        }
+        if next_page_token:
+            params["pageToken"] = next_page_token
+        return params
 
 
 class Docs(CodaStream):
@@ -15,9 +58,10 @@ class Docs(CodaStream):
 
     name = "docs"
     path = "/docs"
-    openapi_ref = "Doc"
+    schema = StreamSchema(OPENAPI_SCHEMA, key="Doc")
 
-    def __init__(self, *args: t.Any, **kwargs: t.Any) -> None:
+    @override
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
         """Initialize the `docs` stream."""
         super().__init__(*args, **kwargs)
         self.schema["properties"]["sourceDoc"] = {
@@ -60,19 +104,16 @@ class Docs(CodaStream):
             },
         }
 
+    @override
     def get_child_context(
         self,
         record: dict,
-        context: Context | None,  # noqa: ARG002
+        context: Context | None,
     ) -> dict:
         """Get context for docs child streams.
 
-        Args:
-            record: A `docs` record.
-            context: The stream context.
-
         Returns:
-            Child stream context dictionary.
+            A dictionary of child context.
         """
         return {"docId": record["id"]}
 
@@ -80,7 +121,8 @@ class Docs(CodaStream):
 class _DocChild(CodaStream):
     parent_stream_type = Docs
 
-    def __init__(self, *args: t.Any, **kwargs: t.Any) -> None:
+    @override
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
         """Initialize a stream with `docs` as parent stream.
 
         Args:
@@ -99,7 +141,7 @@ class Pages(_DocChild):
 
     name = "pages"
     path = "/docs/{docId}/pages"
-    openapi_ref = "Page"
+    schema = StreamSchema(OPENAPI_SCHEMA, key="Page")
 
 
 class Controls(_DocChild):
@@ -107,7 +149,7 @@ class Controls(_DocChild):
 
     name = "controls"
     path = "/docs/{docId}/controls"
-    openapi_ref = "ControlReference"
+    schema = StreamSchema(OPENAPI_SCHEMA, key="ControlReference")
 
 
 class Formulas(_DocChild):
@@ -115,9 +157,10 @@ class Formulas(_DocChild):
 
     name = "formulas"
     path = "/docs/{docId}/formulas"
-    openapi_ref = "Formula"
+    schema = StreamSchema(OPENAPI_SCHEMA, key="Formula")
 
-    def __init__(self, *args: t.Any, **kwargs: t.Any) -> None:
+    @override
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
         """Initialize `formulas` stream."""
         super().__init__(*args, **kwargs)
         del self.schema["properties"]["value"]
@@ -137,19 +180,12 @@ class Formulas(_DocChild):
             "example": True,
         }
 
-    def post_process(
-        self,
-        row: dict,
-        context: Context | None = None,  # noqa: ARG002
-    ) -> dict | None:
+    @override
+    def post_process(self, row: dict, context: Context | None = None) -> dict | None:
         """Post-process formula records.
 
-        Args:
-            row: A formula record.
-            context: The stream context.
-
         Returns:
-            A post-processed formula record.
+            A dictionary of post-processed formula records.
         """
         value = row.pop("value", None)
         if isinstance(value, str):
@@ -166,15 +202,11 @@ class Permissions(_DocChild):
 
     name = "permissions"
     path = "/docs/{docId}/acl/permissions"
-    openapi_ref = "Permission"
+    schema = StreamSchema(OPENAPI_SCHEMA, key="Permission")
 
-    def __init__(self, *args: t.Any, **kwargs: t.Any) -> None:
-        """Initialize a stream with `docs` as parent stream.
-
-        Args:
-            args: Positional arguments.
-            kwargs: Keyword arguments.
-        """
+    @override
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        """Initialize `permissions` stream."""
         super().__init__(*args, **kwargs)
         self.schema["properties"]["principal"]["type"] = "object"
 
@@ -184,17 +216,14 @@ class Tables(_DocChild):
 
     name = "tables"
     path = "/docs/{docId}/tables"
-    openapi_ref = "Table"
+    schema = StreamSchema(OPENAPI_SCHEMA, key="Table")
 
+    @override
     def get_child_context(self, record: dict, context: Context | None) -> dict:
-        """Get context for tables child streams.
-
-        Args:
-            record: A `tables` record.
-            context: The stream context.
+        """Get context for `tables` child streams.
 
         Returns:
-            Child stream context dictionary.
+            A dictionary of child context.
         """
         return {
             "docId": context["docId"] if context else None,
@@ -205,13 +234,9 @@ class Tables(_DocChild):
 class _TableChild(CodaStream):
     parent_stream_type = Tables
 
-    def __init__(self, *args: t.Any, **kwargs: t.Any) -> None:
-        """Initialize a stream with `tables` as parent stream.
-
-        Args:
-            args: Positional arguments.
-            kwargs: Keyword arguments.
-        """
+    @override
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        """Initialize a stream with `tables` as parent stream."""
         super().__init__(*args, **kwargs)
         self.schema["properties"]["tableIdOrName"] = {
             "type": "string",
@@ -224,16 +249,11 @@ class Columns(_TableChild):
 
     name = "columns"
     path = "/docs/{docId}/tables/{tableIdOrName}/columns"
-    parent_stream_type = Tables
-    openapi_ref = "Column"
+    schema = StreamSchema(OPENAPI_SCHEMA, key="Column")
 
-    def __init__(self, *args: t.Any, **kwargs: t.Any) -> None:
-        """Initialize a stream with `docs` as parent stream.
-
-        Args:
-            args: Positional arguments.
-            kwargs: Keyword arguments.
-        """
+    @override
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        """Initialize `columns` stream."""
         super().__init__(*args, **kwargs)
         self.schema["properties"]["format"]["type"] = "object"
 
@@ -244,14 +264,10 @@ class Rows(_TableChild):
     name = "rows"
     path = "/docs/{docId}/tables/{tableIdOrName}/rows"
     parent_stream_type = Tables
-    openapi_ref = "Row"
+    schema = StreamSchema(OPENAPI_SCHEMA, key="Row")
 
-    def __init__(self, *args: t.Any, **kwargs: t.Any) -> None:
-        """Initialize a stream with `docs` as parent stream.
-
-        Args:
-            args: Positional arguments.
-            kwargs: Keyword arguments.
-        """
+    @override
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        """Initialize `rows` stream."""
         super().__init__(*args, **kwargs)
         self.schema["properties"]["values"].pop("additionalProperties")

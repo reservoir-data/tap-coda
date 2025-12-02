@@ -1,4 +1,4 @@
-"""Tap executable."""
+"""Tap executable."""  # noqa: CPY001
 
 from __future__ import annotations
 

@@ -31,10 +31,12 @@ dev = [
 ]
 testing = [
     "singer-sdk[testing]",
+    "syrupy>=5.0.0",
 ]
 typing = [
     { include-group = "testing" },
-    "mypy>=1.11.1",
+    "mypy>=1.19",
+    "ty>=0.0.1a29",
     "types-requests",
 ]
 
@@ -44,6 +46,7 @@ warn_unused_ignores = true
 
 [tool.ruff]
 line-length = 88
+preview = true
 src = ["tap_coda"]
 
 [tool.ruff.lint]
@@ -67,7 +70,7 @@ required-imports = ["from __future__ import annotations"]
 
 [tool.ruff.lint.per-file-ignores]
 "noxfile.py" = ["ANN"]
-"tests/*" = ["ANN"]
+"tests/*" = ["ANN", "S101"]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"

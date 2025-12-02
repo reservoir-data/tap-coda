@@ -1,1 +1,1 @@
-"""Singer tap for the Coda API."""
+"""Singer tap for the Coda API."""  # noqa: CPY001

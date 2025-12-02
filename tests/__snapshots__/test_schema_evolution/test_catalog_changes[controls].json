@@ -1,0 +1,214 @@
+{
+  "key_properties": [
+    "id"
+  ],
+  "metadata": [
+    {
+      "breadcrumb": [
+        "properties",
+        "id"
+      ],
+      "metadata": {
+        "inclusion": "automatic"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "href"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parent"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parent",
+        "properties",
+        "id"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parent",
+        "properties",
+        "type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parent",
+        "properties",
+        "href"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parent",
+        "properties",
+        "browserLink"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parent",
+        "properties",
+        "name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [],
+      "metadata": {
+        "inclusion": "available",
+        "selected": true,
+        "selected-by-default": true,
+        "table-key-properties": [
+          "id"
+        ]
+      }
+    }
+  ],
+  "replication_method": "FULL_TABLE",
+  "schema": {
+    "additionalProperties": false,
+    "description": "Reference to a control.",
+    "properties": {
+      "href": {
+        "description": "API link to the control.",
+        "format": "url",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "id": {
+        "description": "ID of the control.",
+        "type": "string"
+      },
+      "name": {
+        "description": "Name of the control.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "parent": {
+        "additionalProperties": false,
+        "description": "Reference to a page.",
+        "properties": {
+          "browserLink": {
+            "description": "Browser-friendly link to the page.",
+            "format": "url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "href": {
+            "description": "API link to the page.",
+            "format": "url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "id": {
+            "description": "ID of the page.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "name": {
+            "description": "Name of the page.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": {
+            "description": "The type of this resource.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "browserLink",
+          "href",
+          "name"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "type": {
+        "description": "The type of this resource.",
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "required": [
+      "id",
+      "type",
+      "href",
+      "name"
+    ],
+    "type": "object"
+  },
+  "stream": "controls",
+  "tap_stream_id": "controls"
+}
