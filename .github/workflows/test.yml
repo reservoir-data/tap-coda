@@ -7,8 +7,18 @@ on:
   # Run weekly on Monday at 12:00 PM UTC
   - cron: "0 12 * * 1"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 env:
-  FORCE_COLOR: "1"
+  FORCE_COLOR: 1
+  # renovate: datasource=pypi depName=uv
+  UV_VERSION: 0.9.14
+  # renovate: datasource=pypi depName=tox
+  TOX_VERSION: 4.32.0
+  # renovate: datasource=pypi depName=tox-uv
+  TOX_UV_VERSION: 1.29.0
 
 jobs:
   tests:
@@ -30,10 +40,12 @@ jobs:
 
     - name: Install uv
       uses: astral-sh/setup-uv@1e862dfacbd1d6d858c55d9b792c756523627244 # v7.1.4
+      with:
+        version: ${{ env.UV_VERSION }}
 
     - name: Install tox
       run: |
-        uv tool install --with tox-uv tox
+        uv tool install --with tox-uv==${{ env.TOX_UV_VERSION }} --with tox==${{ env.TOX_VERSION }} tox
         tox --version
 
     - name: Run tests
@@ -55,6 +67,8 @@ jobs:
 
     - name: Install uv
       uses: astral-sh/setup-uv@1e862dfacbd1d6d858c55d9b792c756523627244 # v7.1.4
+      with:
+        version: ${{ env.UV_VERSION }}
 
     - name: Install dependencies
       run: |
@@ -62,4 +76,5 @@ jobs:
 
     - name: Run typing checks
       run: |
-        uv run mypy tap_coda
+        uv run mypy tap_coda tests
+        uv run ty check tap_coda tests

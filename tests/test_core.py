@@ -1,4 +1,4 @@
-"""Tests standard tap features using the built-in SDK tests library."""
+"""Tests standard tap features using the built-in SDK tests library."""  # noqa: CPY001
 
 from __future__ import annotations
 

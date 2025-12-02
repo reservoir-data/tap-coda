@@ -1,0 +1,191 @@
+{
+  "key_properties": [
+    "id"
+  ],
+  "metadata": [
+    {
+      "breadcrumb": [
+        "properties",
+        "principal"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "id"
+      ],
+      "metadata": {
+        "inclusion": "automatic"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "access"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [],
+      "metadata": {
+        "inclusion": "available",
+        "selected": true,
+        "selected-by-default": true,
+        "table-key-properties": [
+          "id"
+        ]
+      }
+    }
+  ],
+  "replication_method": "FULL_TABLE",
+  "schema": {
+    "additionalProperties": false,
+    "description": "A specific permission granted to a principal.",
+    "properties": {
+      "access": {
+        "description": "Type of access.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "id": {
+        "description": "Id for the Permission",
+        "type": "string"
+      },
+      "principal": {
+        "description": "Metadata about a principal.",
+        "oneOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "email": {
+                "description": "Email for the principal.",
+                "example": "example@domain.com",
+                "type": "string"
+              },
+              "type": {
+                "description": "The type of this principal.",
+                "enum": [
+                  "email"
+                ],
+                "type": "string",
+                "x-tsType": "PrincipalType.Email"
+              }
+            },
+            "required": [
+              "email",
+              "type"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "groupId": {
+                "description": "Group ID for the principal.",
+                "example": "grp-6SM9xrKcqW",
+                "type": "string"
+              },
+              "groupName": {
+                "description": "Name of the group.",
+                "example": "Marketing team",
+                "type": "string"
+              },
+              "type": {
+                "description": "The type of this principal.",
+                "enum": [
+                  "group"
+                ],
+                "type": "string",
+                "x-tsType": "PrincipalType.Group"
+              }
+            },
+            "required": [
+              "groupId",
+              "groupName",
+              "type"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "domain": {
+                "description": "Domain for the principal.",
+                "example": "domain.com",
+                "type": "string"
+              },
+              "type": {
+                "description": "The type of this principal.",
+                "enum": [
+                  "domain"
+                ],
+                "type": "string",
+                "x-tsType": "PrincipalType.Domain"
+              }
+            },
+            "required": [
+              "domain",
+              "type"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "description": "The type of this principal.",
+                "enum": [
+                  "workspace"
+                ],
+                "type": "string",
+                "x-tsType": "PrincipalType.Workspace"
+              },
+              "workspaceId": {
+                "description": "WorkspaceId for the principal.",
+                "example": "ws-sdfmsdf9",
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "workspaceId"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "description": "The type of this principal.",
+                "enum": [
+                  "anyone"
+                ],
+                "type": "string",
+                "x-tsType": "PrincipalType.Anyone"
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "type": "object"
+          }
+        ]
+      }
+    },
+    "required": [
+      "principal",
+      "id",
+      "access"
+    ],
+    "type": "object"
+  },
+  "stream": "permissions",
+  "tap_stream_id": "permissions"
+}

@@ -1,0 +1,865 @@
+{
+  "key_properties": [
+    "id"
+  ],
+  "metadata": [
+    {
+      "breadcrumb": [
+        "properties",
+        "id"
+      ],
+      "metadata": {
+        "inclusion": "automatic"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "href"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "browserLink"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "subtitle"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "icon"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "icon",
+        "properties",
+        "name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "icon",
+        "properties",
+        "type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "icon",
+        "properties",
+        "browserLink"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "image"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "image",
+        "properties",
+        "browserLink"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "image",
+        "properties",
+        "type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "image",
+        "properties",
+        "width"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "image",
+        "properties",
+        "height"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "contentType"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "isHidden"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "isEffectivelyHidden"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parent"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parent",
+        "properties",
+        "id"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parent",
+        "properties",
+        "type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parent",
+        "properties",
+        "href"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parent",
+        "properties",
+        "browserLink"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "parent",
+        "properties",
+        "name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "children"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "authors"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "createdAt"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "createdBy"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "createdBy",
+        "properties",
+        "@context"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "createdBy",
+        "properties",
+        "@type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "createdBy",
+        "properties",
+        "additionalType"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "createdBy",
+        "properties",
+        "name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "createdBy",
+        "properties",
+        "email"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "updatedAt"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "updatedBy"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "updatedBy",
+        "properties",
+        "@context"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "updatedBy",
+        "properties",
+        "@type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "updatedBy",
+        "properties",
+        "additionalType"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "updatedBy",
+        "properties",
+        "name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "updatedBy",
+        "properties",
+        "email"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [],
+      "metadata": {
+        "inclusion": "available",
+        "selected": true,
+        "selected-by-default": true,
+        "table-key-properties": [
+          "id"
+        ]
+      }
+    }
+  ],
+  "replication_method": "FULL_TABLE",
+  "schema": {
+    "additionalProperties": false,
+    "description": "Metadata about a page.",
+    "properties": {
+      "authors": {
+        "description": "Authors of the page",
+        "items": {
+          "additionalProperties": false,
+          "description": "Base type for a JSON-LD (Linked Data) object.",
+          "properties": {
+            "@context": {
+              "description": "A url describing the schema context for this object, typically \"http://schema.org/\".",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "@type": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "additionalType": {
+              "description": "An identifier of additional type info specific to Coda that may not be present in a schema.org taxonomy,\n",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "email": {
+              "description": "The email address of the person.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "name": {
+              "description": "The full name of the person.",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "@type",
+            "name"
+          ],
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "type": [
+          "array",
+          "null"
+        ]
+      },
+      "browserLink": {
+        "description": "Browser-friendly link to the page.",
+        "format": "url",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "children": {
+        "items": {
+          "additionalProperties": false,
+          "description": "Reference to a page.",
+          "properties": {
+            "browserLink": {
+              "description": "Browser-friendly link to the page.",
+              "format": "url",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "href": {
+              "description": "API link to the page.",
+              "format": "url",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "id": {
+              "description": "ID of the page.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "name": {
+              "description": "Name of the page.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "type": {
+              "description": "The type of this resource.",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "type",
+            "browserLink",
+            "href",
+            "name"
+          ],
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "type": [
+          "array",
+          "null"
+        ]
+      },
+      "contentType": {
+        "description": "The type of a page in a doc.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "createdAt": {
+        "description": "Timestamp for when the page was created.",
+        "format": "date-time",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "createdBy": {
+        "additionalProperties": false,
+        "description": "Base type for a JSON-LD (Linked Data) object.",
+        "properties": {
+          "@context": {
+            "description": "A url describing the schema context for this object, typically \"http://schema.org/\".",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "@type": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "additionalType": {
+            "description": "An identifier of additional type info specific to Coda that may not be present in a schema.org taxonomy,\n",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "email": {
+            "description": "The email address of the person.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "name": {
+            "description": "The full name of the person.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "@type",
+          "name"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "href": {
+        "description": "API link to the page.",
+        "format": "url",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "icon": {
+        "additionalProperties": false,
+        "description": "Info about the icon.",
+        "properties": {
+          "browserLink": {
+            "description": "Browser-friendly link to an icon.",
+            "format": "url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "name": {
+            "description": "Name of the icon.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": {
+            "description": "MIME type of the icon",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "browserLink"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "id": {
+        "description": "ID of the page.",
+        "type": "string"
+      },
+      "image": {
+        "additionalProperties": false,
+        "description": "Info about the image.",
+        "properties": {
+          "browserLink": {
+            "description": "Browser-friendly link to an image.",
+            "format": "url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "height": {
+            "description": "The height in pixels of the image.",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "type": {
+            "description": "MIME type of the image.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "width": {
+            "description": "The width in pixels of the image.",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "browserLink"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "isEffectivelyHidden": {
+        "description": "Whether the page or any of its parents is hidden in the UI.",
+        "type": [
+          "boolean",
+          "null"
+        ]
+      },
+      "isHidden": {
+        "description": "Whether the page is hidden in the UI.",
+        "type": [
+          "boolean",
+          "null"
+        ]
+      },
+      "name": {
+        "description": "Name of the page.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "parent": {
+        "additionalProperties": false,
+        "description": "Reference to a page.",
+        "properties": {
+          "browserLink": {
+            "description": "Browser-friendly link to the page.",
+            "format": "url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "href": {
+            "description": "API link to the page.",
+            "format": "url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "id": {
+            "description": "ID of the page.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "name": {
+            "description": "Name of the page.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": {
+            "description": "The type of this resource.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "browserLink",
+          "href",
+          "name"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "subtitle": {
+        "description": "Subtitle of the page.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": {
+        "description": "The type of this resource.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "updatedAt": {
+        "description": "Timestamp for when page content was last modified.",
+        "format": "date-time",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "updatedBy": {
+        "additionalProperties": false,
+        "description": "Base type for a JSON-LD (Linked Data) object.",
+        "properties": {
+          "@context": {
+            "description": "A url describing the schema context for this object, typically \"http://schema.org/\".",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "@type": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "additionalType": {
+            "description": "An identifier of additional type info specific to Coda that may not be present in a schema.org taxonomy,\n",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "email": {
+            "description": "The email address of the person.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "name": {
+            "description": "The full name of the person.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "@type",
+          "name"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      }
+    },
+    "required": [
+      "id",
+      "type",
+      "href",
+      "name",
+      "isHidden",
+      "isEffectivelyHidden",
+      "browserLink",
+      "children",
+      "contentType"
+    ],
+    "type": "object"
+  },
+  "stream": "pages",
+  "tap_stream_id": "pages"
+}

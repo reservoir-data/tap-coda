@@ -1,5 +1,5 @@
 # Output data
-**/*.json
+output/*.json
 **/*.jsonl
 **/*.db
 

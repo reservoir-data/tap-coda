@@ -1,0 +1,2066 @@
+{
+  "key_properties": [
+    "id"
+  ],
+  "metadata": [
+    {
+      "breadcrumb": [
+        "properties",
+        "id"
+      ],
+      "metadata": {
+        "inclusion": "automatic"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "href"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "display"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "calculated"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "formula"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "defaultValue"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "format"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [],
+      "metadata": {
+        "inclusion": "available",
+        "selected": true,
+        "selected-by-default": true,
+        "table-key-properties": [
+          "id"
+        ]
+      }
+    }
+  ],
+  "replication_method": "FULL_TABLE",
+  "schema": {
+    "additionalProperties": false,
+    "description": "Info about a column.",
+    "properties": {
+      "calculated": {
+        "description": "Whether the column has a formula set on it.",
+        "type": [
+          "boolean",
+          "null"
+        ]
+      },
+      "defaultValue": {
+        "description": "Default value formula for the column.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "display": {
+        "description": "Whether the column is the display column.",
+        "type": [
+          "boolean",
+          "null"
+        ]
+      },
+      "format": {
+        "description": "Format of a column.",
+        "oneOf": [
+          {
+            "allOf": [
+              {
+                "additionalProperties": false,
+                "description": "Format of a simple column.",
+                "properties": {
+                  "isArray": {
+                    "description": "Whether or not this column is an array.",
+                    "example": true,
+                    "type": "boolean"
+                  },
+                  "type": {
+                    "description": "Format type of the column",
+                    "enum": [
+                      "text",
+                      "person",
+                      "lookup",
+                      "number",
+                      "percent",
+                      "currency",
+                      "date",
+                      "dateTime",
+                      "time",
+                      "duration",
+                      "email",
+                      "link",
+                      "slider",
+                      "scale",
+                      "image",
+                      "imageReference",
+                      "attachments",
+                      "button",
+                      "checkbox",
+                      "select",
+                      "packObject",
+                      "reaction",
+                      "canvas",
+                      "other"
+                    ],
+                    "type": "string",
+                    "x-schema-name": "ColumnFormatType",
+                    "x-tsEnumNames": [
+                      "Text",
+                      "Person",
+                      "Lookup",
+                      "Number",
+                      "Percent",
+                      "Currency",
+                      "Date",
+                      "DateTime",
+                      "Time",
+                      "Duration",
+                      "Email",
+                      "Link",
+                      "Slider",
+                      "Scale",
+                      "Image",
+                      "ImageReference",
+                      "Attachments",
+                      "Button",
+                      "Checkbox",
+                      "Select",
+                      "PackObject",
+                      "Reaction",
+                      "Canvas",
+                      "Other"
+                    ]
+                  }
+                },
+                "required": [
+                  "type",
+                  "isArray"
+                ],
+                "type": "object",
+                "x-schema-name": "SimpleColumnFormat"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "action": {
+                    "description": "Action formula for the button.",
+                    "example": "OpenUrl(\"www.google.com\")",
+                    "type": "string"
+                  },
+                  "disableIf": {
+                    "description": "DisableIf formula for the button.",
+                    "example": "False()",
+                    "type": "string"
+                  },
+                  "label": {
+                    "description": "Label formula for the button.",
+                    "example": "Click me",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            ],
+            "description": "Format of a button column.",
+            "x-schema-name": "ButtonColumnFormat"
+          },
+          {
+            "allOf": [
+              {
+                "additionalProperties": false,
+                "description": "Format of a simple column.",
+                "properties": {
+                  "isArray": {
+                    "description": "Whether or not this column is an array.",
+                    "example": true,
+                    "type": "boolean"
+                  },
+                  "type": {
+                    "description": "Format type of the column",
+                    "enum": [
+                      "text",
+                      "person",
+                      "lookup",
+                      "number",
+                      "percent",
+                      "currency",
+                      "date",
+                      "dateTime",
+                      "time",
+                      "duration",
+                      "email",
+                      "link",
+                      "slider",
+                      "scale",
+                      "image",
+                      "imageReference",
+                      "attachments",
+                      "button",
+                      "checkbox",
+                      "select",
+                      "packObject",
+                      "reaction",
+                      "canvas",
+                      "other"
+                    ],
+                    "type": "string",
+                    "x-schema-name": "ColumnFormatType",
+                    "x-tsEnumNames": [
+                      "Text",
+                      "Person",
+                      "Lookup",
+                      "Number",
+                      "Percent",
+                      "Currency",
+                      "Date",
+                      "DateTime",
+                      "Time",
+                      "Duration",
+                      "Email",
+                      "Link",
+                      "Slider",
+                      "Scale",
+                      "Image",
+                      "ImageReference",
+                      "Attachments",
+                      "Button",
+                      "Checkbox",
+                      "Select",
+                      "PackObject",
+                      "Reaction",
+                      "Canvas",
+                      "Other"
+                    ]
+                  }
+                },
+                "required": [
+                  "type",
+                  "isArray"
+                ],
+                "type": "object",
+                "x-schema-name": "SimpleColumnFormat"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "displayType": {
+                    "description": "How a checkbox should be displayed.",
+                    "enum": [
+                      "toggle",
+                      "check"
+                    ],
+                    "type": "string",
+                    "x-schema-name": "CheckboxDisplayType",
+                    "x-tsEnumNames": [
+                      "Toggle",
+                      "Check"
+                    ]
+                  }
+                },
+                "required": [
+                  "displayType"
+                ],
+                "type": "object"
+              }
+            ],
+            "description": "Format of a checkbox column.",
+            "x-schema-name": "CheckboxColumnFormat"
+          },
+          {
+            "allOf": [
+              {
+                "additionalProperties": false,
+                "description": "Format of a simple column.",
+                "properties": {
+                  "isArray": {
+                    "description": "Whether or not this column is an array.",
+                    "example": true,
+                    "type": "boolean"
+                  },
+                  "type": {
+                    "description": "Format type of the column",
+                    "enum": [
+                      "text",
+                      "person",
+                      "lookup",
+                      "number",
+                      "percent",
+                      "currency",
+                      "date",
+                      "dateTime",
+                      "time",
+                      "duration",
+                      "email",
+                      "link",
+                      "slider",
+                      "scale",
+                      "image",
+                      "imageReference",
+                      "attachments",
+                      "button",
+                      "checkbox",
+                      "select",
+                      "packObject",
+                      "reaction",
+                      "canvas",
+                      "other"
+                    ],
+                    "type": "string",
+                    "x-schema-name": "ColumnFormatType",
+                    "x-tsEnumNames": [
+                      "Text",
+                      "Person",
+                      "Lookup",
+                      "Number",
+                      "Percent",
+                      "Currency",
+                      "Date",
+                      "DateTime",
+                      "Time",
+                      "Duration",
+                      "Email",
+                      "Link",
+                      "Slider",
+                      "Scale",
+                      "Image",
+                      "ImageReference",
+                      "Attachments",
+                      "Button",
+                      "Checkbox",
+                      "Select",
+                      "PackObject",
+                      "Reaction",
+                      "Canvas",
+                      "Other"
+                    ]
+                  }
+                },
+                "required": [
+                  "type",
+                  "isArray"
+                ],
+                "type": "object",
+                "x-schema-name": "SimpleColumnFormat"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "format": {
+                    "description": "A format string using Moment syntax: https://momentjs.com/docs/#/displaying/",
+                    "example": "YYYY-MM-DD",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            ],
+            "description": "Format of a date column.",
+            "x-schema-name": "DateColumnFormat"
+          },
+          {
+            "allOf": [
+              {
+                "additionalProperties": false,
+                "description": "Format of a simple column.",
+                "properties": {
+                  "isArray": {
+                    "description": "Whether or not this column is an array.",
+                    "example": true,
+                    "type": "boolean"
+                  },
+                  "type": {
+                    "description": "Format type of the column",
+                    "enum": [
+                      "text",
+                      "person",
+                      "lookup",
+                      "number",
+                      "percent",
+                      "currency",
+                      "date",
+                      "dateTime",
+                      "time",
+                      "duration",
+                      "email",
+                      "link",
+                      "slider",
+                      "scale",
+                      "image",
+                      "imageReference",
+                      "attachments",
+                      "button",
+                      "checkbox",
+                      "select",
+                      "packObject",
+                      "reaction",
+                      "canvas",
+                      "other"
+                    ],
+                    "type": "string",
+                    "x-schema-name": "ColumnFormatType",
+                    "x-tsEnumNames": [
+                      "Text",
+                      "Person",
+                      "Lookup",
+                      "Number",
+                      "Percent",
+                      "Currency",
+                      "Date",
+                      "DateTime",
+                      "Time",
+                      "Duration",
+                      "Email",
+                      "Link",
+                      "Slider",
+                      "Scale",
+                      "Image",
+                      "ImageReference",
+                      "Attachments",
+                      "Button",
+                      "Checkbox",
+                      "Select",
+                      "PackObject",
+                      "Reaction",
+                      "Canvas",
+                      "Other"
+                    ]
+                  }
+                },
+                "required": [
+                  "type",
+                  "isArray"
+                ],
+                "type": "object",
+                "x-schema-name": "SimpleColumnFormat"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "dateFormat": {
+                    "description": "A format string using Moment syntax: https://momentjs.com/docs/#/displaying/",
+                    "example": "YYYY-MM-DD",
+                    "type": "string"
+                  },
+                  "timeFormat": {
+                    "description": "A format string using Moment syntax: https://momentjs.com/docs/#/displaying/",
+                    "example": "h:mm:ss A",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            ],
+            "description": "Format of a date column.",
+            "x-schema-name": "DateTimeColumnFormat"
+          },
+          {
+            "allOf": [
+              {
+                "additionalProperties": false,
+                "description": "Format of a simple column.",
+                "properties": {
+                  "isArray": {
+                    "description": "Whether or not this column is an array.",
+                    "example": true,
+                    "type": "boolean"
+                  },
+                  "type": {
+                    "description": "Format type of the column",
+                    "enum": [
+                      "text",
+                      "person",
+                      "lookup",
+                      "number",
+                      "percent",
+                      "currency",
+                      "date",
+                      "dateTime",
+                      "time",
+                      "duration",
+                      "email",
+                      "link",
+                      "slider",
+                      "scale",
+                      "image",
+                      "imageReference",
+                      "attachments",
+                      "button",
+                      "checkbox",
+                      "select",
+                      "packObject",
+                      "reaction",
+                      "canvas",
+                      "other"
+                    ],
+                    "type": "string",
+                    "x-schema-name": "ColumnFormatType",
+                    "x-tsEnumNames": [
+                      "Text",
+                      "Person",
+                      "Lookup",
+                      "Number",
+                      "Percent",
+                      "Currency",
+                      "Date",
+                      "DateTime",
+                      "Time",
+                      "Duration",
+                      "Email",
+                      "Link",
+                      "Slider",
+                      "Scale",
+                      "Image",
+                      "ImageReference",
+                      "Attachments",
+                      "Button",
+                      "Checkbox",
+                      "Select",
+                      "PackObject",
+                      "Reaction",
+                      "Canvas",
+                      "Other"
+                    ]
+                  }
+                },
+                "required": [
+                  "type",
+                  "isArray"
+                ],
+                "type": "object",
+                "x-schema-name": "SimpleColumnFormat"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "maxUnit": {
+                    "allOf": [
+                      {
+                        "additionalProperties": false,
+                        "description": "The maximum unit of precision, e.g. \"hours\" if this duration need not include minutes."
+                      },
+                      {
+                        "description": "A time unit used as part of a duration value.",
+                        "enum": [
+                          "days",
+                          "hours",
+                          "minutes",
+                          "seconds"
+                        ],
+                        "type": "string",
+                        "x-schema-name": "DurationUnit",
+                        "x-tsEnumNames": [
+                          "Days",
+                          "Hours",
+                          "Minutes",
+                          "Seconds"
+                        ]
+                      }
+                    ]
+                  },
+                  "precision": {
+                    "example": 2,
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              }
+            ],
+            "description": "Format of a duration column.",
+            "x-schema-name": "DurationColumnFormat"
+          },
+          {
+            "allOf": [
+              {
+                "additionalProperties": false,
+                "description": "Format of a simple column.",
+                "properties": {
+                  "isArray": {
+                    "description": "Whether or not this column is an array.",
+                    "example": true,
+                    "type": "boolean"
+                  },
+                  "type": {
+                    "description": "Format type of the column",
+                    "enum": [
+                      "text",
+                      "person",
+                      "lookup",
+                      "number",
+                      "percent",
+                      "currency",
+                      "date",
+                      "dateTime",
+                      "time",
+                      "duration",
+                      "email",
+                      "link",
+                      "slider",
+                      "scale",
+                      "image",
+                      "imageReference",
+                      "attachments",
+                      "button",
+                      "checkbox",
+                      "select",
+                      "packObject",
+                      "reaction",
+                      "canvas",
+                      "other"
+                    ],
+                    "type": "string",
+                    "x-schema-name": "ColumnFormatType",
+                    "x-tsEnumNames": [
+                      "Text",
+                      "Person",
+                      "Lookup",
+                      "Number",
+                      "Percent",
+                      "Currency",
+                      "Date",
+                      "DateTime",
+                      "Time",
+                      "Duration",
+                      "Email",
+                      "Link",
+                      "Slider",
+                      "Scale",
+                      "Image",
+                      "ImageReference",
+                      "Attachments",
+                      "Button",
+                      "Checkbox",
+                      "Select",
+                      "PackObject",
+                      "Reaction",
+                      "Canvas",
+                      "Other"
+                    ]
+                  }
+                },
+                "required": [
+                  "type",
+                  "isArray"
+                ],
+                "type": "object",
+                "x-schema-name": "SimpleColumnFormat"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "autocomplete": {
+                    "type": "boolean"
+                  },
+                  "display": {
+                    "description": "How an email address should be displayed in the user interface.",
+                    "enum": [
+                      "iconAndEmail",
+                      "iconOnly",
+                      "emailOnly"
+                    ],
+                    "type": "string",
+                    "x-schema-name": "EmailDisplayType",
+                    "x-tsEnumNames": [
+                      "IconAndEmail",
+                      "IconOnly",
+                      "EmailOnly"
+                    ]
+                  }
+                },
+                "type": "object"
+              }
+            ],
+            "description": "Format of an email column.",
+            "x-schema-name": "EmailColumnFormat"
+          },
+          {
+            "allOf": [
+              {
+                "additionalProperties": false,
+                "description": "Format of a simple column.",
+                "properties": {
+                  "isArray": {
+                    "description": "Whether or not this column is an array.",
+                    "example": true,
+                    "type": "boolean"
+                  },
+                  "type": {
+                    "description": "Format type of the column",
+                    "enum": [
+                      "text",
+                      "person",
+                      "lookup",
+                      "number",
+                      "percent",
+                      "currency",
+                      "date",
+                      "dateTime",
+                      "time",
+                      "duration",
+                      "email",
+                      "link",
+                      "slider",
+                      "scale",
+                      "image",
+                      "imageReference",
+                      "attachments",
+                      "button",
+                      "checkbox",
+                      "select",
+                      "packObject",
+                      "reaction",
+                      "canvas",
+                      "other"
+                    ],
+                    "type": "string",
+                    "x-schema-name": "ColumnFormatType",
+                    "x-tsEnumNames": [
+                      "Text",
+                      "Person",
+                      "Lookup",
+                      "Number",
+                      "Percent",
+                      "Currency",
+                      "Date",
+                      "DateTime",
+                      "Time",
+                      "Duration",
+                      "Email",
+                      "Link",
+                      "Slider",
+                      "Scale",
+                      "Image",
+                      "ImageReference",
+                      "Attachments",
+                      "Button",
+                      "Checkbox",
+                      "Select",
+                      "PackObject",
+                      "Reaction",
+                      "Canvas",
+                      "Other"
+                    ]
+                  }
+                },
+                "required": [
+                  "type",
+                  "isArray"
+                ],
+                "type": "object",
+                "x-schema-name": "SimpleColumnFormat"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "display": {
+                    "description": "How a link should be displayed in the user interface.",
+                    "enum": [
+                      "iconOnly",
+                      "url",
+                      "title",
+                      "card",
+                      "embed"
+                    ],
+                    "type": "string",
+                    "x-schema-name": "LinkDisplayType",
+                    "x-tsEnumNames": [
+                      "IconOnly",
+                      "Url",
+                      "Title",
+                      "Card",
+                      "Embed"
+                    ]
+                  },
+                  "force": {
+                    "description": "Force embeds to render on the client instead of the server (for sites that require user login).",
+                    "example": true,
+                    "type": "boolean"
+                  }
+                },
+                "type": "object"
+              }
+            ],
+            "description": "Format of a link column.",
+            "x-schema-name": "LinkColumnFormat"
+          },
+          {
+            "allOf": [
+              {
+                "additionalProperties": false,
+                "description": "Format of a simple column.",
+                "properties": {
+                  "isArray": {
+                    "description": "Whether or not this column is an array.",
+                    "example": true,
+                    "type": "boolean"
+                  },
+                  "type": {
+                    "description": "Format type of the column",
+                    "enum": [
+                      "text",
+                      "person",
+                      "lookup",
+                      "number",
+                      "percent",
+                      "currency",
+                      "date",
+                      "dateTime",
+                      "time",
+                      "duration",
+                      "email",
+                      "link",
+                      "slider",
+                      "scale",
+                      "image",
+                      "imageReference",
+                      "attachments",
+                      "button",
+                      "checkbox",
+                      "select",
+                      "packObject",
+                      "reaction",
+                      "canvas",
+                      "other"
+                    ],
+                    "type": "string",
+                    "x-schema-name": "ColumnFormatType",
+                    "x-tsEnumNames": [
+                      "Text",
+                      "Person",
+                      "Lookup",
+                      "Number",
+                      "Percent",
+                      "Currency",
+                      "Date",
+                      "DateTime",
+                      "Time",
+                      "Duration",
+                      "Email",
+                      "Link",
+                      "Slider",
+                      "Scale",
+                      "Image",
+                      "ImageReference",
+                      "Attachments",
+                      "Button",
+                      "Checkbox",
+                      "Select",
+                      "PackObject",
+                      "Reaction",
+                      "Canvas",
+                      "Other"
+                    ]
+                  }
+                },
+                "required": [
+                  "type",
+                  "isArray"
+                ],
+                "type": "object",
+                "x-schema-name": "SimpleColumnFormat"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "currencyCode": {
+                    "description": "The currency symbol",
+                    "example": "$",
+                    "type": "string"
+                  },
+                  "format": {
+                    "description": "How the numeric value should be formatted (with or without symbol, negative numbers in parens).",
+                    "enum": [
+                      "currency",
+                      "accounting",
+                      "financial"
+                    ],
+                    "type": "string",
+                    "x-schema-name": "CurrencyFormatType",
+                    "x-tsEnumNames": [
+                      "Currency",
+                      "Accounting",
+                      "Financial"
+                    ]
+                  },
+                  "precision": {
+                    "description": "The decimal precision.",
+                    "example": 2,
+                    "maximum": 10,
+                    "minimum": 0,
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              }
+            ],
+            "description": "Format of a currency column.",
+            "x-schema-name": "CurrencyColumnFormat"
+          },
+          {
+            "allOf": [
+              {
+                "additionalProperties": false,
+                "description": "Format of a simple column.",
+                "properties": {
+                  "isArray": {
+                    "description": "Whether or not this column is an array.",
+                    "example": true,
+                    "type": "boolean"
+                  },
+                  "type": {
+                    "description": "Format type of the column",
+                    "enum": [
+                      "text",
+                      "person",
+                      "lookup",
+                      "number",
+                      "percent",
+                      "currency",
+                      "date",
+                      "dateTime",
+                      "time",
+                      "duration",
+                      "email",
+                      "link",
+                      "slider",
+                      "scale",
+                      "image",
+                      "imageReference",
+                      "attachments",
+                      "button",
+                      "checkbox",
+                      "select",
+                      "packObject",
+                      "reaction",
+                      "canvas",
+                      "other"
+                    ],
+                    "type": "string",
+                    "x-schema-name": "ColumnFormatType",
+                    "x-tsEnumNames": [
+                      "Text",
+                      "Person",
+                      "Lookup",
+                      "Number",
+                      "Percent",
+                      "Currency",
+                      "Date",
+                      "DateTime",
+                      "Time",
+                      "Duration",
+                      "Email",
+                      "Link",
+                      "Slider",
+                      "Scale",
+                      "Image",
+                      "ImageReference",
+                      "Attachments",
+                      "Button",
+                      "Checkbox",
+                      "Select",
+                      "PackObject",
+                      "Reaction",
+                      "Canvas",
+                      "Other"
+                    ]
+                  }
+                },
+                "required": [
+                  "type",
+                  "isArray"
+                ],
+                "type": "object",
+                "x-schema-name": "SimpleColumnFormat"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "height": {
+                    "allOf": [
+                      {
+                        "additionalProperties": false,
+                        "description": "The image height."
+                      },
+                      {
+                        "description": "A number or a string representing a formula that evaluates to a number.",
+                        "oneOf": [
+                          {
+                            "description": "A numeric value.",
+                            "example": 1,
+                            "type": "number"
+                          },
+                          {
+                            "description": "A formula that evaluates to a numeric value.",
+                            "example": "5 * 10",
+                            "type": "string"
+                          }
+                        ],
+                        "x-schema-name": "NumberOrNumberFormula"
+                      }
+                    ]
+                  },
+                  "style": {
+                    "description": "How an image should be displayed.",
+                    "enum": [
+                      "auto",
+                      "circle"
+                    ],
+                    "type": "string",
+                    "x-schema-name": "ImageShapeStyle",
+                    "x-tsEnumNames": [
+                      "Auto",
+                      "Circle"
+                    ]
+                  },
+                  "width": {
+                    "allOf": [
+                      {
+                        "additionalProperties": false,
+                        "description": "The image width."
+                      },
+                      {
+                        "description": "A number or a string representing a formula that evaluates to a number.",
+                        "oneOf": [
+                          {
+                            "description": "A numeric value.",
+                            "example": 1,
+                            "type": "number"
+                          },
+                          {
+                            "description": "A formula that evaluates to a numeric value.",
+                            "example": "5 * 10",
+                            "type": "string"
+                          }
+                        ],
+                        "x-schema-name": "NumberOrNumberFormula"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "width",
+                  "height",
+                  "style"
+                ],
+                "type": "object"
+              }
+            ],
+            "description": "Format of an image reference column.",
+            "x-schema-name": "ImageReferenceColumnFormat"
+          },
+          {
+            "allOf": [
+              {
+                "additionalProperties": false,
+                "description": "Format of a simple column.",
+                "properties": {
+                  "isArray": {
+                    "description": "Whether or not this column is an array.",
+                    "example": true,
+                    "type": "boolean"
+                  },
+                  "type": {
+                    "description": "Format type of the column",
+                    "enum": [
+                      "text",
+                      "person",
+                      "lookup",
+                      "number",
+                      "percent",
+                      "currency",
+                      "date",
+                      "dateTime",
+                      "time",
+                      "duration",
+                      "email",
+                      "link",
+                      "slider",
+                      "scale",
+                      "image",
+                      "imageReference",
+                      "attachments",
+                      "button",
+                      "checkbox",
+                      "select",
+                      "packObject",
+                      "reaction",
+                      "canvas",
+                      "other"
+                    ],
+                    "type": "string",
+                    "x-schema-name": "ColumnFormatType",
+                    "x-tsEnumNames": [
+                      "Text",
+                      "Person",
+                      "Lookup",
+                      "Number",
+                      "Percent",
+                      "Currency",
+                      "Date",
+                      "DateTime",
+                      "Time",
+                      "Duration",
+                      "Email",
+                      "Link",
+                      "Slider",
+                      "Scale",
+                      "Image",
+                      "ImageReference",
+                      "Attachments",
+                      "Button",
+                      "Checkbox",
+                      "Select",
+                      "PackObject",
+                      "Reaction",
+                      "Canvas",
+                      "Other"
+                    ]
+                  }
+                },
+                "required": [
+                  "type",
+                  "isArray"
+                ],
+                "type": "object",
+                "x-schema-name": "SimpleColumnFormat"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "precision": {
+                    "description": "The decimal precision.",
+                    "example": 2,
+                    "maximum": 10,
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "useThousandsSeparator": {
+                    "description": "Whether to use a thousands separator (like \",\") to format the numeric value.",
+                    "example": true,
+                    "type": "boolean"
+                  }
+                },
+                "type": "object"
+              }
+            ],
+            "description": "Format of a numeric column.",
+            "x-schema-name": "NumericColumnFormat"
+          },
+          {
+            "allOf": [
+              {
+                "additionalProperties": false,
+                "description": "Format of a simple column.",
+                "properties": {
+                  "isArray": {
+                    "description": "Whether or not this column is an array.",
+                    "example": true,
+                    "type": "boolean"
+                  },
+                  "type": {
+                    "description": "Format type of the column",
+                    "enum": [
+                      "text",
+                      "person",
+                      "lookup",
+                      "number",
+                      "percent",
+                      "currency",
+                      "date",
+                      "dateTime",
+                      "time",
+                      "duration",
+                      "email",
+                      "link",
+                      "slider",
+                      "scale",
+                      "image",
+                      "imageReference",
+                      "attachments",
+                      "button",
+                      "checkbox",
+                      "select",
+                      "packObject",
+                      "reaction",
+                      "canvas",
+                      "other"
+                    ],
+                    "type": "string",
+                    "x-schema-name": "ColumnFormatType",
+                    "x-tsEnumNames": [
+                      "Text",
+                      "Person",
+                      "Lookup",
+                      "Number",
+                      "Percent",
+                      "Currency",
+                      "Date",
+                      "DateTime",
+                      "Time",
+                      "Duration",
+                      "Email",
+                      "Link",
+                      "Slider",
+                      "Scale",
+                      "Image",
+                      "ImageReference",
+                      "Attachments",
+                      "Button",
+                      "Checkbox",
+                      "Select",
+                      "PackObject",
+                      "Reaction",
+                      "Canvas",
+                      "Other"
+                    ]
+                  }
+                },
+                "required": [
+                  "type",
+                  "isArray"
+                ],
+                "type": "object",
+                "x-schema-name": "SimpleColumnFormat"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "table": {
+                    "allOf": [
+                      {
+                        "additionalProperties": false,
+                        "description": "Reference to the table this column refers to, if applicable."
+                      },
+                      {
+                        "additionalProperties": false,
+                        "description": "Reference to a table or view.",
+                        "properties": {
+                          "browserLink": {
+                            "description": "Browser-friendly link to the table.",
+                            "example": "https://coda.io/d/_dAbCDeFGH/#Teams-and-Tasks_tpqRst-U",
+                            "format": "url",
+                            "type": "string"
+                          },
+                          "href": {
+                            "description": "API link to the table.",
+                            "example": "https://coda.io/apis/v1/docs/AbCDeFGH/tables/grid-pqRst-U",
+                            "format": "url",
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "ID of the table.",
+                            "example": "grid-pqRst-U",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Name of the table.",
+                            "example": "Tasks",
+                            "type": "string"
+                          },
+                          "parent": {
+                            "additionalProperties": false,
+                            "description": "Reference to a page.",
+                            "properties": {
+                              "browserLink": {
+                                "description": "Browser-friendly link to the page.",
+                                "example": "https://coda.io/d/_dAbCDeFGH/Launch-Status_sumnO",
+                                "format": "url",
+                                "type": "string"
+                              },
+                              "href": {
+                                "description": "API link to the page.",
+                                "example": "https://coda.io/apis/v1/docs/AbCDeFGH/pages/canvas-IjkLmnO",
+                                "format": "url",
+                                "type": "string"
+                              },
+                              "id": {
+                                "description": "ID of the page.",
+                                "example": "canvas-IjkLmnO",
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "Name of the page.",
+                                "example": "Launch Status",
+                                "type": "string"
+                              },
+                              "type": {
+                                "description": "The type of this resource.",
+                                "enum": [
+                                  "page"
+                                ],
+                                "type": "string",
+                                "x-tsType": "Type.Page"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "type",
+                              "browserLink",
+                              "href",
+                              "name"
+                            ],
+                            "type": "object",
+                            "x-schema-name": "PageReference"
+                          },
+                          "tableType": {
+                            "enum": [
+                              "table",
+                              "view"
+                            ],
+                            "type": "string",
+                            "x-schema-name": "TableType",
+                            "x-tsEnumNames": [
+                              "Table",
+                              "View"
+                            ]
+                          },
+                          "type": {
+                            "description": "The type of this resource.",
+                            "enum": [
+                              "table"
+                            ],
+                            "type": "string",
+                            "x-tsType": "Type.Table"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "type",
+                          "tableType",
+                          "browserLink",
+                          "href",
+                          "name"
+                        ],
+                        "type": "object",
+                        "x-schema-name": "TableReference"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "table"
+                ],
+                "type": "object"
+              }
+            ],
+            "description": "Format of a column that refers to another table.",
+            "x-schema-name": "ReferenceColumnFormat"
+          },
+          {
+            "allOf": [
+              {
+                "additionalProperties": false,
+                "description": "Format of a simple column.",
+                "properties": {
+                  "isArray": {
+                    "description": "Whether or not this column is an array.",
+                    "example": true,
+                    "type": "boolean"
+                  },
+                  "type": {
+                    "description": "Format type of the column",
+                    "enum": [
+                      "text",
+                      "person",
+                      "lookup",
+                      "number",
+                      "percent",
+                      "currency",
+                      "date",
+                      "dateTime",
+                      "time",
+                      "duration",
+                      "email",
+                      "link",
+                      "slider",
+                      "scale",
+                      "image",
+                      "imageReference",
+                      "attachments",
+                      "button",
+                      "checkbox",
+                      "select",
+                      "packObject",
+                      "reaction",
+                      "canvas",
+                      "other"
+                    ],
+                    "type": "string",
+                    "x-schema-name": "ColumnFormatType",
+                    "x-tsEnumNames": [
+                      "Text",
+                      "Person",
+                      "Lookup",
+                      "Number",
+                      "Percent",
+                      "Currency",
+                      "Date",
+                      "DateTime",
+                      "Time",
+                      "Duration",
+                      "Email",
+                      "Link",
+                      "Slider",
+                      "Scale",
+                      "Image",
+                      "ImageReference",
+                      "Attachments",
+                      "Button",
+                      "Checkbox",
+                      "Select",
+                      "PackObject",
+                      "Reaction",
+                      "Canvas",
+                      "Other"
+                    ]
+                  }
+                },
+                "required": [
+                  "type",
+                  "isArray"
+                ],
+                "type": "object",
+                "x-schema-name": "SimpleColumnFormat"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "options": {
+                    "description": "For select format columns, the list of available options. Only returned for select lists that used a fixed set of options. Returns the first 5000 options.",
+                    "items": {
+                      "additionalProperties": false,
+                      "description": "An option for a select column.",
+                      "properties": {
+                        "backgroundColor": {
+                          "description": "The background color of the option.",
+                          "example": "#ff0000",
+                          "type": "string"
+                        },
+                        "foregroundColor": {
+                          "description": "The foreground color of the option.",
+                          "example": "#ffffff",
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name of the option.",
+                          "example": "Option 1",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ],
+                      "type": "object",
+                      "x-schema-name": "SelectOption"
+                    },
+                    "type": "array"
+                  }
+                },
+                "type": "object"
+              }
+            ],
+            "description": "Format of a select column.",
+            "x-schema-name": "SelectColumnFormat"
+          },
+          {
+            "additionalProperties": false,
+            "description": "Format of a simple column.",
+            "properties": {
+              "isArray": {
+                "description": "Whether or not this column is an array.",
+                "example": true,
+                "type": "boolean"
+              },
+              "type": {
+                "description": "Format type of the column",
+                "enum": [
+                  "text",
+                  "person",
+                  "lookup",
+                  "number",
+                  "percent",
+                  "currency",
+                  "date",
+                  "dateTime",
+                  "time",
+                  "duration",
+                  "email",
+                  "link",
+                  "slider",
+                  "scale",
+                  "image",
+                  "imageReference",
+                  "attachments",
+                  "button",
+                  "checkbox",
+                  "select",
+                  "packObject",
+                  "reaction",
+                  "canvas",
+                  "other"
+                ],
+                "type": "string",
+                "x-schema-name": "ColumnFormatType",
+                "x-tsEnumNames": [
+                  "Text",
+                  "Person",
+                  "Lookup",
+                  "Number",
+                  "Percent",
+                  "Currency",
+                  "Date",
+                  "DateTime",
+                  "Time",
+                  "Duration",
+                  "Email",
+                  "Link",
+                  "Slider",
+                  "Scale",
+                  "Image",
+                  "ImageReference",
+                  "Attachments",
+                  "Button",
+                  "Checkbox",
+                  "Select",
+                  "PackObject",
+                  "Reaction",
+                  "Canvas",
+                  "Other"
+                ]
+              }
+            },
+            "required": [
+              "type",
+              "isArray"
+            ],
+            "type": "object",
+            "x-schema-name": "SimpleColumnFormat"
+          },
+          {
+            "allOf": [
+              {
+                "additionalProperties": false,
+                "description": "Format of a simple column.",
+                "properties": {
+                  "isArray": {
+                    "description": "Whether or not this column is an array.",
+                    "example": true,
+                    "type": "boolean"
+                  },
+                  "type": {
+                    "description": "Format type of the column",
+                    "enum": [
+                      "text",
+                      "person",
+                      "lookup",
+                      "number",
+                      "percent",
+                      "currency",
+                      "date",
+                      "dateTime",
+                      "time",
+                      "duration",
+                      "email",
+                      "link",
+                      "slider",
+                      "scale",
+                      "image",
+                      "imageReference",
+                      "attachments",
+                      "button",
+                      "checkbox",
+                      "select",
+                      "packObject",
+                      "reaction",
+                      "canvas",
+                      "other"
+                    ],
+                    "type": "string",
+                    "x-schema-name": "ColumnFormatType",
+                    "x-tsEnumNames": [
+                      "Text",
+                      "Person",
+                      "Lookup",
+                      "Number",
+                      "Percent",
+                      "Currency",
+                      "Date",
+                      "DateTime",
+                      "Time",
+                      "Duration",
+                      "Email",
+                      "Link",
+                      "Slider",
+                      "Scale",
+                      "Image",
+                      "ImageReference",
+                      "Attachments",
+                      "Button",
+                      "Checkbox",
+                      "Select",
+                      "PackObject",
+                      "Reaction",
+                      "Canvas",
+                      "Other"
+                    ]
+                  }
+                },
+                "required": [
+                  "type",
+                  "isArray"
+                ],
+                "type": "object",
+                "x-schema-name": "SimpleColumnFormat"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "icon": {
+                    "allOf": [
+                      {
+                        "additionalProperties": false,
+                        "description": "The icon set to use when rendering the scale, e.g. render a 5 star scale."
+                      },
+                      {
+                        "description": "List of available icon sets.",
+                        "enum": [
+                          "star",
+                          "circle",
+                          "fire",
+                          "bug",
+                          "diamond",
+                          "bell",
+                          "thumbsup",
+                          "heart",
+                          "chili",
+                          "smiley",
+                          "lightning",
+                          "currency",
+                          "coffee",
+                          "person",
+                          "battery",
+                          "cocktail",
+                          "cloud",
+                          "sun",
+                          "checkmark",
+                          "lightbulb"
+                        ],
+                        "type": "string",
+                        "x-schema-name": "IconSet",
+                        "x-tsEnumNames": [
+                          "Star",
+                          "Circle",
+                          "Fire",
+                          "Bug",
+                          "Diamond",
+                          "Bell",
+                          "ThumbsUp",
+                          "Heart",
+                          "Chili",
+                          "Smiley",
+                          "Lightning",
+                          "Currency",
+                          "Coffee",
+                          "Person",
+                          "Battery",
+                          "Cocktail",
+                          "Cloud",
+                          "Sun",
+                          "Checkmark",
+                          "LightBulb"
+                        ]
+                      }
+                    ]
+                  },
+                  "maximum": {
+                    "description": "The maximum number allowed for this scale.",
+                    "example": 5,
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "maximum",
+                  "icon"
+                ],
+                "type": "object"
+              }
+            ],
+            "description": "Format of a numeric column that renders as a scale, like star ratings.",
+            "x-schema-name": "ScaleColumnFormat"
+          },
+          {
+            "allOf": [
+              {
+                "additionalProperties": false,
+                "description": "Format of a simple column.",
+                "properties": {
+                  "isArray": {
+                    "description": "Whether or not this column is an array.",
+                    "example": true,
+                    "type": "boolean"
+                  },
+                  "type": {
+                    "description": "Format type of the column",
+                    "enum": [
+                      "text",
+                      "person",
+                      "lookup",
+                      "number",
+                      "percent",
+                      "currency",
+                      "date",
+                      "dateTime",
+                      "time",
+                      "duration",
+                      "email",
+                      "link",
+                      "slider",
+                      "scale",
+                      "image",
+                      "imageReference",
+                      "attachments",
+                      "button",
+                      "checkbox",
+                      "select",
+                      "packObject",
+                      "reaction",
+                      "canvas",
+                      "other"
+                    ],
+                    "type": "string",
+                    "x-schema-name": "ColumnFormatType",
+                    "x-tsEnumNames": [
+                      "Text",
+                      "Person",
+                      "Lookup",
+                      "Number",
+                      "Percent",
+                      "Currency",
+                      "Date",
+                      "DateTime",
+                      "Time",
+                      "Duration",
+                      "Email",
+                      "Link",
+                      "Slider",
+                      "Scale",
+                      "Image",
+                      "ImageReference",
+                      "Attachments",
+                      "Button",
+                      "Checkbox",
+                      "Select",
+                      "PackObject",
+                      "Reaction",
+                      "Canvas",
+                      "Other"
+                    ]
+                  }
+                },
+                "required": [
+                  "type",
+                  "isArray"
+                ],
+                "type": "object",
+                "x-schema-name": "SimpleColumnFormat"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "displayType": {
+                    "description": "How the slider should be rendered.",
+                    "enum": [
+                      "slider",
+                      "progress"
+                    ],
+                    "type": "string",
+                    "x-schema-name": "SliderDisplayType",
+                    "x-tsEnumNames": [
+                      "Slider",
+                      "Progress"
+                    ]
+                  },
+                  "maximum": {
+                    "allOf": [
+                      {
+                        "additionalProperties": false,
+                        "description": "The maximum allowed value for this slider."
+                      },
+                      {
+                        "description": "A number or a string representing a formula that evaluates to a number.",
+                        "oneOf": [
+                          {
+                            "description": "A numeric value.",
+                            "example": 1,
+                            "type": "number"
+                          },
+                          {
+                            "description": "A formula that evaluates to a numeric value.",
+                            "example": "5 * 10",
+                            "type": "string"
+                          }
+                        ],
+                        "x-schema-name": "NumberOrNumberFormula"
+                      }
+                    ]
+                  },
+                  "minimum": {
+                    "allOf": [
+                      {
+                        "additionalProperties": false,
+                        "description": "The minimum allowed value for this slider."
+                      },
+                      {
+                        "description": "A number or a string representing a formula that evaluates to a number.",
+                        "oneOf": [
+                          {
+                            "description": "A numeric value.",
+                            "example": 1,
+                            "type": "number"
+                          },
+                          {
+                            "description": "A formula that evaluates to a numeric value.",
+                            "example": "5 * 10",
+                            "type": "string"
+                          }
+                        ],
+                        "x-schema-name": "NumberOrNumberFormula"
+                      }
+                    ]
+                  },
+                  "showValue": {
+                    "description": "Whether the underyling numeric value is also displayed.",
+                    "example": true,
+                    "type": "boolean"
+                  },
+                  "step": {
+                    "allOf": [
+                      {
+                        "additionalProperties": false,
+                        "description": "The step size (numeric increment) for this slider."
+                      },
+                      {
+                        "description": "A number or a string representing a formula that evaluates to a number.",
+                        "oneOf": [
+                          {
+                            "description": "A numeric value.",
+                            "example": 1,
+                            "type": "number"
+                          },
+                          {
+                            "description": "A formula that evaluates to a numeric value.",
+                            "example": "5 * 10",
+                            "type": "string"
+                          }
+                        ],
+                        "x-schema-name": "NumberOrNumberFormula"
+                      }
+                    ]
+                  }
+                },
+                "type": "object"
+              }
+            ],
+            "description": "Format of a numeric column that renders as a slider.",
+            "x-schema-name": "SliderColumnFormat"
+          },
+          {
+            "allOf": [
+              {
+                "additionalProperties": false,
+                "description": "Format of a simple column.",
+                "properties": {
+                  "isArray": {
+                    "description": "Whether or not this column is an array.",
+                    "example": true,
+                    "type": "boolean"
+                  },
+                  "type": {
+                    "description": "Format type of the column",
+                    "enum": [
+                      "text",
+                      "person",
+                      "lookup",
+                      "number",
+                      "percent",
+                      "currency",
+                      "date",
+                      "dateTime",
+                      "time",
+                      "duration",
+                      "email",
+                      "link",
+                      "slider",
+                      "scale",
+                      "image",
+                      "imageReference",
+                      "attachments",
+                      "button",
+                      "checkbox",
+                      "select",
+                      "packObject",
+                      "reaction",
+                      "canvas",
+                      "other"
+                    ],
+                    "type": "string",
+                    "x-schema-name": "ColumnFormatType",
+                    "x-tsEnumNames": [
+                      "Text",
+                      "Person",
+                      "Lookup",
+                      "Number",
+                      "Percent",
+                      "Currency",
+                      "Date",
+                      "DateTime",
+                      "Time",
+                      "Duration",
+                      "Email",
+                      "Link",
+                      "Slider",
+                      "Scale",
+                      "Image",
+                      "ImageReference",
+                      "Attachments",
+                      "Button",
+                      "Checkbox",
+                      "Select",
+                      "PackObject",
+                      "Reaction",
+                      "Canvas",
+                      "Other"
+                    ]
+                  }
+                },
+                "required": [
+                  "type",
+                  "isArray"
+                ],
+                "type": "object",
+                "x-schema-name": "SimpleColumnFormat"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "format": {
+                    "description": "A format string using Moment syntax: https://momentjs.com/docs/#/displaying/",
+                    "example": "h:mm:ss A",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            ],
+            "description": "Format of a time column.",
+            "x-schema-name": "TimeColumnFormat"
+          }
+        ]
+      },
+      "formula": {
+        "description": "Formula on the column.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "href": {
+        "description": "API link to the column.",
+        "format": "url",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "id": {
+        "description": "ID of the column.",
+        "type": "string"
+      },
+      "name": {
+        "description": "Name of the column.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": {
+        "description": "The type of this resource.",
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "required": [
+      "id",
+      "type",
+      "href",
+      "name",
+      "format"
+    ],
+    "type": "object"
+  },
+  "stream": "columns",
+  "tap_stream_id": "columns"
+}

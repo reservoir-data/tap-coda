@@ -1,0 +1,882 @@
+{
+  "key_properties": [
+    "id"
+  ],
+  "metadata": [
+    {
+      "breadcrumb": [
+        "properties",
+        "id"
+      ],
+      "metadata": {
+        "inclusion": "automatic"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "href"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "browserLink"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "icon"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "icon",
+        "properties",
+        "name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "icon",
+        "properties",
+        "type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "icon",
+        "properties",
+        "browserLink"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "owner"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "ownerName"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "docSize"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "docSize",
+        "properties",
+        "totalRowCount"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "docSize",
+        "properties",
+        "tableAndViewCount"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "docSize",
+        "properties",
+        "pageCount"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "docSize",
+        "properties",
+        "overApiSizeLimit"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "sourceDoc"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "sourceDoc",
+        "properties",
+        "id"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "sourceDoc",
+        "properties",
+        "type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "sourceDoc",
+        "properties",
+        "href"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "sourceDoc",
+        "properties",
+        "browserLink"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "createdAt"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "updatedAt"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "published"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "published",
+        "properties",
+        "description"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "published",
+        "properties",
+        "browserLink"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "published",
+        "properties",
+        "imageLink"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "published",
+        "properties",
+        "discoverable"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "published",
+        "properties",
+        "earnCredit"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "published",
+        "properties",
+        "mode"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "published",
+        "properties",
+        "categories"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "folder"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "folder",
+        "properties",
+        "id"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "folder",
+        "properties",
+        "type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "folder",
+        "properties",
+        "browserLink"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "folder",
+        "properties",
+        "name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "workspace"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "workspace",
+        "properties",
+        "id"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "workspace",
+        "properties",
+        "type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "workspace",
+        "properties",
+        "organizationId"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "workspace",
+        "properties",
+        "browserLink"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "workspace",
+        "properties",
+        "name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "workspaceId"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "folderId"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [],
+      "metadata": {
+        "inclusion": "available",
+        "selected": true,
+        "selected-by-default": true,
+        "table-key-properties": [
+          "id"
+        ]
+      }
+    }
+  ],
+  "replication_method": "FULL_TABLE",
+  "schema": {
+    "additionalProperties": false,
+    "description": "Metadata about a Coda doc.",
+    "properties": {
+      "browserLink": {
+        "description": "Browser-friendly link to the Coda doc.",
+        "format": "url",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "createdAt": {
+        "description": "Timestamp for when the doc was created.",
+        "format": "date-time",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "docSize": {
+        "additionalProperties": false,
+        "description": "The number of components within a Coda doc.",
+        "properties": {
+          "overApiSizeLimit": {
+            "description": "If true, indicates that the doc is over the API size limit.",
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "pageCount": {
+            "description": "The total number of page contained within the doc.",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "tableAndViewCount": {
+            "description": "The total number of tables and views contained within the doc.",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "totalRowCount": {
+            "description": "The number of rows contained within all tables of the doc.",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "totalRowCount",
+          "tableAndViewCount",
+          "pageCount",
+          "overApiSizeLimit"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "folder": {
+        "additionalProperties": false,
+        "description": "Reference to a Coda folder.",
+        "properties": {
+          "browserLink": {
+            "description": "Browser-friendly link to the folder.",
+            "format": "url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "id": {
+            "description": "ID of the Coda folder.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "name": {
+            "description": "Name of the folder; included if the user has access to the folder.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": {
+            "description": "The type of this resource.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "browserLink"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "folderId": {
+        "deprecated": true,
+        "description": "ID of the Coda folder containing this doc.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "href": {
+        "description": "API link to the Coda doc.",
+        "format": "url",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "icon": {
+        "additionalProperties": false,
+        "description": "Info about the icon.",
+        "properties": {
+          "browserLink": {
+            "description": "Browser-friendly link to an icon.",
+            "format": "url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "name": {
+            "description": "Name of the icon.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": {
+            "description": "MIME type of the icon",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "browserLink"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "id": {
+        "description": "ID of the Coda doc.",
+        "type": "string"
+      },
+      "name": {
+        "description": "Name of the doc.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "owner": {
+        "description": "Email address of the doc owner.",
+        "format": "email",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "ownerName": {
+        "description": "Name of the doc owner.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "published": {
+        "additionalProperties": false,
+        "description": "Information about the publishing state of the document.",
+        "properties": {
+          "browserLink": {
+            "description": "URL to the published doc.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "categories": {
+            "description": "Categories applied to the doc.",
+            "items": {
+              "additionalProperties": false,
+              "description": "The category applied to a doc.",
+              "properties": {
+                "name": {
+                  "description": "Name of the category.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "description": {
+            "description": "Description of the published doc.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "discoverable": {
+            "description": "If true, indicates that the doc is discoverable.",
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "earnCredit": {
+            "description": "If true, new users may be required to sign in to view content within this document. You will receive Coda credit for each user who signs up via your doc.\n",
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "imageLink": {
+            "description": "URL to the cover image for the published doc.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "mode": {
+            "description": "Which interaction mode the published doc should use.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "browserLink",
+          "discoverable",
+          "earnCredit",
+          "mode",
+          "categories"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "sourceDoc": {
+        "additionalProperties": false,
+        "description": "Reference to a Coda doc.",
+        "properties": {
+          "browserLink": {
+            "description": "Browser-friendly link to the Coda doc.",
+            "format": "url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "href": {
+            "description": "API link to the Coda doc.",
+            "format": "url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "id": {
+            "description": "ID of the Coda doc.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": {
+            "description": "The type of this resource.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "browserLink",
+          "href"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "type": {
+        "description": "The type of this resource.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "updatedAt": {
+        "description": "Timestamp for when the doc was last modified.",
+        "format": "date-time",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "workspace": {
+        "additionalProperties": false,
+        "description": "Reference to a Coda workspace.",
+        "properties": {
+          "browserLink": {
+            "description": "Browser-friendly link to the Coda workspace.",
+            "format": "url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "id": {
+            "description": "ID of the Coda workspace.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "name": {
+            "description": "Name of the workspace; included if the user has access to the workspace.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "organizationId": {
+            "description": "ID of the organization bound to this workspace, if any.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": {
+            "description": "The type of this resource.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "browserLink"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "workspaceId": {
+        "deprecated": true,
+        "description": "ID of the Coda workspace containing this doc.",
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "required": [
+      "id",
+      "type",
+      "href",
+      "browserLink",
+      "name",
+      "owner",
+      "ownerName",
+      "createdAt",
+      "updatedAt",
+      "workspace",
+      "folder",
+      "workspaceId",
+      "folderId"
+    ],
+    "type": "object"
+  },
+  "stream": "docs",
+  "tap_stream_id": "docs"
+}
