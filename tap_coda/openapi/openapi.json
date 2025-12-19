@@ -4934,6 +4934,46 @@
             "$ref": "#/components/responses/TooManyRequestsError"
           }
         }
+      },
+      "delete": {
+        "summary": "Delete a user's own permissions for Pack",
+        "description": "Delete a user's own permissions for a given Pack.\n",
+        "operationId": "deleteUserPackPermission",
+        "tags": [
+          "Packs"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/packId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Confirmation of successfully deleting a user's permissions for a Pack.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteUserPackPermissionsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequestWithValidationErrors"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequestsError"
+          }
+        }
       }
     },
     "/packs/{packId}/permissions/{permissionId}": {
@@ -5003,7 +5043,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PackInvitationList"
+                  "$ref": "#/components/schemas/PackInvitationWithPackList"
                 }
               }
             }
@@ -7393,14 +7433,16 @@
           "group",
           "domain",
           "workspace",
-          "anyone"
+          "anyone",
+          "internalAccess"
         ],
         "x-tsEnumNames": [
           "Email",
           "Group",
           "Domain",
           "Workspace",
-          "Anyone"
+          "Anyone",
+          "InternalAccess"
         ]
       },
       "AddedPrincipal": {
@@ -7561,6 +7603,9 @@
           },
           {
             "$ref": "#/components/schemas/AnyonePrincipal"
+          },
+          {
+            "$ref": "#/components/schemas/InternalAccessPrincipal"
           }
         ],
         "discriminator": {
@@ -7570,7 +7615,8 @@
             "group": "#/components/schemas/GroupPrincipal",
             "domain": "#/components/schemas/DomainPrincipal",
             "workspace": "#/components/schemas/WorkspacePrincipal",
-            "anyone": "#/components/schemas/AnyonePrincipal"
+            "anyone": "#/components/schemas/AnyonePrincipal",
+            "internalAccess": "#/components/schemas/InternalAccessPrincipal"
           }
         }
       },
@@ -7686,6 +7732,29 @@
               "anyone"
             ],
             "x-tsType": "PrincipalType.Anyone"
+          }
+        }
+      },
+      "InternalAccessPrincipal": {
+        "type": "object",
+        "required": [
+          "type",
+          "internalAccessType"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "The type of this principal.",
+            "enum": [
+              "internalAccess"
+            ],
+            "x-tsType": "PrincipalType.InternalAccess"
+          },
+          "internalAccessType": {
+            "type": "string",
+            "description": "The type of internal access (e.g., support).",
+            "example": "support"
           }
         }
       },
@@ -14459,6 +14528,67 @@
           }
         }
       },
+      "PackInvitationWithPack": {
+        "x-schema-name": "PackInvitationWithPack",
+        "description": "Pack invitation with Pack metadata.",
+        "type": "object",
+        "required": [
+          "invitation",
+          "pack",
+          "makers",
+          "networkDomains"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "invitation": {
+            "$ref": "#/components/schemas/PackInvitation"
+          },
+          "pack": {
+            "$ref": "#/components/schemas/PackSummary"
+          },
+          "makers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Maker"
+            }
+          },
+          "networkDomains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Network domain of the Pack"
+          }
+        }
+      },
+      "PackInvitationWithPackList": {
+        "x-schema-name": "PackInvitationWithPackList",
+        "description": "List of Pack invitations with Pack metadata.",
+        "type": "object",
+        "required": [
+          "items"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PackInvitationWithPack"
+            }
+          },
+          "nextPageToken": {
+            "type": "string",
+            "nullable": true,
+            "description": "Token for fetching the next page of results"
+          },
+          "nextPageLink": {
+            "type": "string",
+            "format": "url",
+            "nullable": true,
+            "description": "URL for fetching the next page of results"
+          }
+        }
+      },
       "PackImageFile": {
         "x-schema-name": "PackImageFile",
         "description": "A Pack image file.",
@@ -18149,6 +18279,13 @@
       "DeletePackPermissionResponse": {
         "x-schema-name": "DeletePackPermissionResponse",
         "description": "Confirmation of successfully deleting a Pack permission.",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {}
+      },
+      "DeleteUserPackPermissionsResponse": {
+        "x-schema-name": "DeleteUserPackPermissionsResponse",
+        "description": "Confirmation of successfully deleting a user's permissions for a Pack.",
         "type": "object",
         "additionalProperties": false,
         "properties": {}

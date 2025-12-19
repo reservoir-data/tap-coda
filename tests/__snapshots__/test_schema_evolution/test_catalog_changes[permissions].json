@@ -175,6 +175,29 @@
               "type"
             ],
             "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "internalAccessType": {
+                "description": "The type of internal access (e.g., support).",
+                "example": "support",
+                "type": "string"
+              },
+              "type": {
+                "description": "The type of this principal.",
+                "enum": [
+                  "internalAccess"
+                ],
+                "type": "string",
+                "x-tsType": "PrincipalType.InternalAccess"
+              }
+            },
+            "required": [
+              "type",
+              "internalAccessType"
+            ],
+            "type": "object"
           }
         ]
       }
