@@ -23,8 +23,6 @@ env:
 jobs:
   tests:
     runs-on: ubuntu-latest
-    env:
-      UV_CONSTRAINT: ${{ github.workspace }}/.github/workflows/constraints.txt
     strategy:
       matrix:
         python-version:
