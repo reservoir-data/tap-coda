@@ -1,5 +1,8 @@
 name: Test tap-coda
 
+permissions:
+  contents: read
+
 on:
   push:
   workflow_dispatch:
