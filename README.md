@@ -6,16 +6,16 @@ Built with the [Meltano SDK](https://sdk.meltano.com) for Singer Taps and Target
 
 ## Capabilities
 
-* `catalog`
-* `discover`
-* `about`
-* `stream-maps`
+- `catalog`
+- `discover`
+- `about`
+- `stream-maps`
 
 ## Settings
 
-| Setting    | Required | Default | Description |
+| Setting | Required | Default | Description |
 |:-----------|:--------:|:-------:|:------------|
-| auth_token | True     | None    | The token to authenticate against the API service. |
+| auth_token | True | None | The token to authenticate against the API service. |
 
 A full list of supported settings and capabilities is available by running: `tap-coda --about`
 

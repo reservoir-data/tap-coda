@@ -637,7 +637,7 @@ dev = [
     { name = "mypy", specifier = ">=1.19" },
     { name = "singer-sdk", extras = ["testing"] },
     { name = "syrupy", specifier = ">=5.0.0" },
-    { name = "ty", specifier = ">=0.0.1a29" },
+    { name = "ty", specifier = ">=0.0.21" },
     { name = "types-requests" },
 ]
 testing = [
@@ -648,7 +648,7 @@ typing = [
     { name = "mypy", specifier = ">=1.19" },
     { name = "singer-sdk", extras = ["testing"] },
     { name = "syrupy", specifier = ">=5.0.0" },
-    { name = "ty", specifier = ">=0.0.1a29" },
+    { name = "ty", specifier = ">=0.0.21" },
     { name = "types-requests" },
 ]
 

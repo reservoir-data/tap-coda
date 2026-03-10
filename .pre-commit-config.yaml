@@ -1,5 +1,8 @@
 ci:
   autofix_prs: false
+  autoupdate_commit_msg: 'chore(deps): update pre-commit hooks'
+  autofix_commit_msg: "style: pre-commit fixes"
+  autoupdate_schedule: "monthly"
 
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -18,13 +21,13 @@ repos:
   - id: ruff-check
   - id: ruff-format
 
-- repo: https://github.com/pre-commit/pre-commit
-  rev: v4.5.1
-  hooks:
-  - id: validate_manifest
-
 - repo: https://github.com/astral-sh/uv-pre-commit
   rev: 0.10.7
   hooks:
   - id: uv-lock
   - id: uv-sync
+
+- repo: https://github.com/hukkin/mdformat
+  rev: 1.0.0
+  hooks:
+  - id: mdformat

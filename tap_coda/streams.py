@@ -12,7 +12,7 @@ from singer_sdk.streams import RESTStream
 from tap_coda import openapi
 
 if TYPE_CHECKING:
-    from singer_sdk.helpers.types import Context
+    from singer_sdk.helpers.types import Context, Record
 
 
 OPENAPI_SCHEMA = OpenAPISchema[str](resources.files(openapi).joinpath("openapi.json"))
@@ -107,9 +107,9 @@ class Docs(CodaStream):
     @override
     def get_child_context(
         self,
-        record: dict,
+        record: Record,
         context: Context | None,
-    ) -> dict:
+    ) -> Context | None:
         """Get context for docs child streams.
 
         Returns:
@@ -181,7 +181,11 @@ class Formulas(_DocChild):
         }
 
     @override
-    def post_process(self, row: dict, context: Context | None = None) -> dict | None:
+    def post_process(
+        self,
+        row: Record,
+        context: Context | None = None,
+    ) -> Record | None:
         """Post-process formula records.
 
         Returns:
@@ -219,7 +223,11 @@ class Tables(_DocChild):
     schema = StreamSchema(OPENAPI_SCHEMA, key="Table")
 
     @override
-    def get_child_context(self, record: dict, context: Context | None) -> dict:
+    def get_child_context(
+        self,
+        record: Record,
+        context: Context | None,
+    ) -> Context | None:
         """Get context for `tables` child streams.
 
         Returns:
