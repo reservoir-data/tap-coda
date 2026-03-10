@@ -160,7 +160,1459 @@
       },
       "values": {
         "additionalProperties": {
-          "$ref": "#/components/schemas/CellValue"
+          "description": "All values that a row cell can contain.",
+          "oneOf": [
+            {
+              "additionalProperties": false,
+              "description": "A Coda result or entity expressed as a primitive type, or array of primitive types.",
+              "oneOf": [
+                {
+                  "description": "A Coda result or entity expressed as a primitive type.",
+                  "oneOf": [
+                    {
+                      "example": "$12.34",
+                      "type": "string"
+                    },
+                    {
+                      "example": 12.34,
+                      "type": "number"
+                    },
+                    {
+                      "example": true,
+                      "type": "boolean"
+                    }
+                  ],
+                  "x-schema-name": "ScalarValue"
+                },
+                {
+                  "items": {
+                    "oneOf": [
+                      {
+                        "description": "A Coda result or entity expressed as a primitive type.",
+                        "oneOf": [
+                          {
+                            "example": "$12.34",
+                            "type": "string"
+                          },
+                          {
+                            "example": 12.34,
+                            "type": "number"
+                          },
+                          {
+                            "example": true,
+                            "type": "boolean"
+                          }
+                        ],
+                        "x-schema-name": "ScalarValue"
+                      },
+                      {
+                        "items": {
+                          "description": "A Coda result or entity expressed as a primitive type.",
+                          "oneOf": [
+                            {
+                              "example": "$12.34",
+                              "type": "string"
+                            },
+                            {
+                              "example": 12.34,
+                              "type": "number"
+                            },
+                            {
+                              "example": true,
+                              "type": "boolean"
+                            }
+                          ],
+                          "x-schema-name": "ScalarValue"
+                        },
+                        "type": "array"
+                      }
+                    ]
+                  },
+                  "type": "array"
+                }
+              ],
+              "x-schema-name": "Value"
+            },
+            {
+              "description": "A cell value that contains rich structured data.",
+              "oneOf": [
+                {
+                  "description": "A value that contains rich structured data. Cell values are composed of these values or arrays of these values.\n",
+                  "discriminator": {
+                    "propertyName": "@type"
+                  },
+                  "oneOf": [
+                    {
+                      "description": "A Coda result or entity expressed as a primitive type.",
+                      "oneOf": [
+                        {
+                          "example": "$12.34",
+                          "type": "string"
+                        },
+                        {
+                          "example": 12.34,
+                          "type": "number"
+                        },
+                        {
+                          "example": true,
+                          "type": "boolean"
+                        }
+                      ],
+                      "x-schema-name": "ScalarValue"
+                    },
+                    {
+                      "allOf": [
+                        {
+                          "additionalProperties": false,
+                          "description": "Base type for a JSON-LD (Linked Data) object.",
+                          "properties": {
+                            "@context": {
+                              "description": "A url describing the schema context for this object, typically \"http://schema.org/\".",
+                              "example": "http://schema.org/",
+                              "type": "string"
+                            },
+                            "@type": {
+                              "description": "A schema.org identifier for the object.",
+                              "enum": [
+                                "ImageObject",
+                                "MonetaryAmount",
+                                "Person",
+                                "WebPage",
+                                "StructuredValue"
+                              ],
+                              "type": "string",
+                              "x-schema-name": "LinkedDataType",
+                              "x-tsEnumNames": [
+                                "ImageObject",
+                                "MonetaryAmount",
+                                "Person",
+                                "WebPage",
+                                "StructuredValue"
+                              ]
+                            },
+                            "additionalType": {
+                              "description": "An identifier of additional type info specific to Coda that may not be present in a schema.org taxonomy,\n",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@context",
+                            "@type"
+                          ],
+                          "type": "object",
+                          "x-schema-name": "LinkedDataObject"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "@type": {
+                              "enum": [
+                                "MonetaryAmount"
+                              ],
+                              "type": "string",
+                              "x-tsType": "LinkedDataType.MonetaryAmount"
+                            },
+                            "amount": {
+                              "description": "A numeric monetary amount as a string or number.",
+                              "oneOf": [
+                                {
+                                  "example": "12.99",
+                                  "type": "string"
+                                },
+                                {
+                                  "example": 42,
+                                  "type": "number"
+                                }
+                              ],
+                              "x-schema-name": "CurrencyAmount"
+                            },
+                            "currency": {
+                              "description": "The 3-letter currency code.",
+                              "example": "USD",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@type",
+                            "currency",
+                            "amount"
+                          ],
+                          "type": "object"
+                        }
+                      ],
+                      "description": "A monetary value with its associated currency code.",
+                      "x-schema-name": "CurrencyValue"
+                    },
+                    {
+                      "allOf": [
+                        {
+                          "additionalProperties": false,
+                          "description": "Base type for a JSON-LD (Linked Data) object.",
+                          "properties": {
+                            "@context": {
+                              "description": "A url describing the schema context for this object, typically \"http://schema.org/\".",
+                              "example": "http://schema.org/",
+                              "type": "string"
+                            },
+                            "@type": {
+                              "description": "A schema.org identifier for the object.",
+                              "enum": [
+                                "ImageObject",
+                                "MonetaryAmount",
+                                "Person",
+                                "WebPage",
+                                "StructuredValue"
+                              ],
+                              "type": "string",
+                              "x-schema-name": "LinkedDataType",
+                              "x-tsEnumNames": [
+                                "ImageObject",
+                                "MonetaryAmount",
+                                "Person",
+                                "WebPage",
+                                "StructuredValue"
+                              ]
+                            },
+                            "additionalType": {
+                              "description": "An identifier of additional type info specific to Coda that may not be present in a schema.org taxonomy,\n",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@context",
+                            "@type"
+                          ],
+                          "type": "object",
+                          "x-schema-name": "LinkedDataObject"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "@type": {
+                              "enum": [
+                                "ImageObject"
+                              ],
+                              "type": "string",
+                              "x-tsType": "LinkedDataType.ImageObject"
+                            },
+                            "height": {
+                              "description": "The height of the image in pixels.",
+                              "example": 480,
+                              "type": "number"
+                            },
+                            "name": {
+                              "description": "The name of the image.",
+                              "example": "Dogs Playing Poker",
+                              "type": "string"
+                            },
+                            "status": {
+                              "description": "The status values that an image object can have.",
+                              "enum": [
+                                "live",
+                                "deleted",
+                                "failed"
+                              ],
+                              "type": "string",
+                              "x-schema-name": "ImageStatus",
+                              "x-tsEnumNames": [
+                                "Live",
+                                "Deleted",
+                                "Failed"
+                              ]
+                            },
+                            "url": {
+                              "description": "The url of the image.",
+                              "example": "https://example.com/dogs-playing-poker.jpg",
+                              "type": "string"
+                            },
+                            "width": {
+                              "description": "The width of the image in pixels.",
+                              "example": 640,
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "@type"
+                          ],
+                          "type": "object"
+                        }
+                      ],
+                      "description": "A named url of an image along with metadata.",
+                      "x-schema-name": "ImageUrlValue"
+                    },
+                    {
+                      "allOf": [
+                        {
+                          "additionalProperties": false,
+                          "description": "Base type for a JSON-LD (Linked Data) object.",
+                          "properties": {
+                            "@context": {
+                              "description": "A url describing the schema context for this object, typically \"http://schema.org/\".",
+                              "example": "http://schema.org/",
+                              "type": "string"
+                            },
+                            "@type": {
+                              "description": "A schema.org identifier for the object.",
+                              "enum": [
+                                "ImageObject",
+                                "MonetaryAmount",
+                                "Person",
+                                "WebPage",
+                                "StructuredValue"
+                              ],
+                              "type": "string",
+                              "x-schema-name": "LinkedDataType",
+                              "x-tsEnumNames": [
+                                "ImageObject",
+                                "MonetaryAmount",
+                                "Person",
+                                "WebPage",
+                                "StructuredValue"
+                              ]
+                            },
+                            "additionalType": {
+                              "description": "An identifier of additional type info specific to Coda that may not be present in a schema.org taxonomy,\n",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@context",
+                            "@type"
+                          ],
+                          "type": "object",
+                          "x-schema-name": "LinkedDataObject"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "@type": {
+                              "enum": [
+                                "Person"
+                              ],
+                              "type": "string",
+                              "x-tsType": "LinkedDataType.Person"
+                            },
+                            "email": {
+                              "description": "The email address of the person.",
+                              "example": "alice@atkins.com",
+                              "type": "string"
+                            },
+                            "name": {
+                              "description": "The full name of the person.",
+                              "example": "Alice Atkins",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@type",
+                            "name"
+                          ],
+                          "type": "object"
+                        }
+                      ],
+                      "description": "A named reference to a person, where the person is identified by email address.",
+                      "x-schema-name": "PersonValue"
+                    },
+                    {
+                      "allOf": [
+                        {
+                          "additionalProperties": false,
+                          "description": "Base type for a JSON-LD (Linked Data) object.",
+                          "properties": {
+                            "@context": {
+                              "description": "A url describing the schema context for this object, typically \"http://schema.org/\".",
+                              "example": "http://schema.org/",
+                              "type": "string"
+                            },
+                            "@type": {
+                              "description": "A schema.org identifier for the object.",
+                              "enum": [
+                                "ImageObject",
+                                "MonetaryAmount",
+                                "Person",
+                                "WebPage",
+                                "StructuredValue"
+                              ],
+                              "type": "string",
+                              "x-schema-name": "LinkedDataType",
+                              "x-tsEnumNames": [
+                                "ImageObject",
+                                "MonetaryAmount",
+                                "Person",
+                                "WebPage",
+                                "StructuredValue"
+                              ]
+                            },
+                            "additionalType": {
+                              "description": "An identifier of additional type info specific to Coda that may not be present in a schema.org taxonomy,\n",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@context",
+                            "@type"
+                          ],
+                          "type": "object",
+                          "x-schema-name": "LinkedDataObject"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "@type": {
+                              "enum": [
+                                "WebPage"
+                              ],
+                              "type": "string",
+                              "x-tsType": "LinkedDataType.WebPage"
+                            },
+                            "name": {
+                              "description": "The user-visible text of the hyperlink.",
+                              "example": "Click me",
+                              "type": "string"
+                            },
+                            "url": {
+                              "description": "The url of the hyperlink.",
+                              "example": "https://coda.io",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@type",
+                            "url"
+                          ],
+                          "type": "object"
+                        }
+                      ],
+                      "description": "A named hyperlink to an arbitrary url.",
+                      "x-schema-name": "UrlValue"
+                    },
+                    {
+                      "allOf": [
+                        {
+                          "additionalProperties": false,
+                          "description": "Base type for a JSON-LD (Linked Data) object.",
+                          "properties": {
+                            "@context": {
+                              "description": "A url describing the schema context for this object, typically \"http://schema.org/\".",
+                              "example": "http://schema.org/",
+                              "type": "string"
+                            },
+                            "@type": {
+                              "description": "A schema.org identifier for the object.",
+                              "enum": [
+                                "ImageObject",
+                                "MonetaryAmount",
+                                "Person",
+                                "WebPage",
+                                "StructuredValue"
+                              ],
+                              "type": "string",
+                              "x-schema-name": "LinkedDataType",
+                              "x-tsEnumNames": [
+                                "ImageObject",
+                                "MonetaryAmount",
+                                "Person",
+                                "WebPage",
+                                "StructuredValue"
+                              ]
+                            },
+                            "additionalType": {
+                              "description": "An identifier of additional type info specific to Coda that may not be present in a schema.org taxonomy,\n",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@context",
+                            "@type"
+                          ],
+                          "type": "object",
+                          "x-schema-name": "LinkedDataObject"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "@type": {
+                              "enum": [
+                                "StructuredValue"
+                              ],
+                              "type": "string",
+                              "x-tsType": "LinkedDataType.StructuredValue"
+                            },
+                            "additionalType": {
+                              "description": "The type of this resource.",
+                              "enum": [
+                                "row"
+                              ],
+                              "type": "string",
+                              "x-tsType": "Type.Row"
+                            },
+                            "name": {
+                              "description": "The display name of the row, based on its identifying column.",
+                              "example": "Apple",
+                              "type": "string"
+                            },
+                            "rowId": {
+                              "description": "The ID of the table",
+                              "example": "i-tuVwxYz",
+                              "type": "string"
+                            },
+                            "tableId": {
+                              "description": "The ID of the table",
+                              "example": "grid-pqRst-U",
+                              "type": "string"
+                            },
+                            "tableUrl": {
+                              "description": "The url of the table.",
+                              "example": "https://coda.io/d/_dAbCDeFGH#Teams-and-Tasks_tpqRst-U",
+                              "type": "string"
+                            },
+                            "url": {
+                              "description": "The url of the row.",
+                              "example": "https://coda.io/d/_dAbCDeFGH#Teams-and-Tasks_tpqRst-U/_rui-tuVwxYz",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@type",
+                            "name",
+                            "url",
+                            "tableId",
+                            "tableUrl",
+                            "rowId",
+                            "additionalType"
+                          ],
+                          "type": "object"
+                        }
+                      ],
+                      "description": "A value representing a Coda row.",
+                      "x-schema-name": "RowValue"
+                    }
+                  ],
+                  "x-schema-name": "RichSingleValue"
+                },
+                {
+                  "items": {
+                    "oneOf": [
+                      {
+                        "description": "A value that contains rich structured data. Cell values are composed of these values or arrays of these values.\n",
+                        "discriminator": {
+                          "propertyName": "@type"
+                        },
+                        "oneOf": [
+                          {
+                            "description": "A Coda result or entity expressed as a primitive type.",
+                            "oneOf": [
+                              {
+                                "example": "$12.34",
+                                "type": "string"
+                              },
+                              {
+                                "example": 12.34,
+                                "type": "number"
+                              },
+                              {
+                                "example": true,
+                                "type": "boolean"
+                              }
+                            ],
+                            "x-schema-name": "ScalarValue"
+                          },
+                          {
+                            "allOf": [
+                              {
+                                "additionalProperties": false,
+                                "description": "Base type for a JSON-LD (Linked Data) object.",
+                                "properties": {
+                                  "@context": {
+                                    "description": "A url describing the schema context for this object, typically \"http://schema.org/\".",
+                                    "example": "http://schema.org/",
+                                    "type": "string"
+                                  },
+                                  "@type": {
+                                    "description": "A schema.org identifier for the object.",
+                                    "enum": [
+                                      "ImageObject",
+                                      "MonetaryAmount",
+                                      "Person",
+                                      "WebPage",
+                                      "StructuredValue"
+                                    ],
+                                    "type": "string",
+                                    "x-schema-name": "LinkedDataType",
+                                    "x-tsEnumNames": [
+                                      "ImageObject",
+                                      "MonetaryAmount",
+                                      "Person",
+                                      "WebPage",
+                                      "StructuredValue"
+                                    ]
+                                  },
+                                  "additionalType": {
+                                    "description": "An identifier of additional type info specific to Coda that may not be present in a schema.org taxonomy,\n",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "@context",
+                                  "@type"
+                                ],
+                                "type": "object",
+                                "x-schema-name": "LinkedDataObject"
+                              },
+                              {
+                                "additionalProperties": false,
+                                "properties": {
+                                  "@type": {
+                                    "enum": [
+                                      "MonetaryAmount"
+                                    ],
+                                    "type": "string",
+                                    "x-tsType": "LinkedDataType.MonetaryAmount"
+                                  },
+                                  "amount": {
+                                    "description": "A numeric monetary amount as a string or number.",
+                                    "oneOf": [
+                                      {
+                                        "example": "12.99",
+                                        "type": "string"
+                                      },
+                                      {
+                                        "example": 42,
+                                        "type": "number"
+                                      }
+                                    ],
+                                    "x-schema-name": "CurrencyAmount"
+                                  },
+                                  "currency": {
+                                    "description": "The 3-letter currency code.",
+                                    "example": "USD",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "@type",
+                                  "currency",
+                                  "amount"
+                                ],
+                                "type": "object"
+                              }
+                            ],
+                            "description": "A monetary value with its associated currency code.",
+                            "x-schema-name": "CurrencyValue"
+                          },
+                          {
+                            "allOf": [
+                              {
+                                "additionalProperties": false,
+                                "description": "Base type for a JSON-LD (Linked Data) object.",
+                                "properties": {
+                                  "@context": {
+                                    "description": "A url describing the schema context for this object, typically \"http://schema.org/\".",
+                                    "example": "http://schema.org/",
+                                    "type": "string"
+                                  },
+                                  "@type": {
+                                    "description": "A schema.org identifier for the object.",
+                                    "enum": [
+                                      "ImageObject",
+                                      "MonetaryAmount",
+                                      "Person",
+                                      "WebPage",
+                                      "StructuredValue"
+                                    ],
+                                    "type": "string",
+                                    "x-schema-name": "LinkedDataType",
+                                    "x-tsEnumNames": [
+                                      "ImageObject",
+                                      "MonetaryAmount",
+                                      "Person",
+                                      "WebPage",
+                                      "StructuredValue"
+                                    ]
+                                  },
+                                  "additionalType": {
+                                    "description": "An identifier of additional type info specific to Coda that may not be present in a schema.org taxonomy,\n",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "@context",
+                                  "@type"
+                                ],
+                                "type": "object",
+                                "x-schema-name": "LinkedDataObject"
+                              },
+                              {
+                                "additionalProperties": false,
+                                "properties": {
+                                  "@type": {
+                                    "enum": [
+                                      "ImageObject"
+                                    ],
+                                    "type": "string",
+                                    "x-tsType": "LinkedDataType.ImageObject"
+                                  },
+                                  "height": {
+                                    "description": "The height of the image in pixels.",
+                                    "example": 480,
+                                    "type": "number"
+                                  },
+                                  "name": {
+                                    "description": "The name of the image.",
+                                    "example": "Dogs Playing Poker",
+                                    "type": "string"
+                                  },
+                                  "status": {
+                                    "description": "The status values that an image object can have.",
+                                    "enum": [
+                                      "live",
+                                      "deleted",
+                                      "failed"
+                                    ],
+                                    "type": "string",
+                                    "x-schema-name": "ImageStatus",
+                                    "x-tsEnumNames": [
+                                      "Live",
+                                      "Deleted",
+                                      "Failed"
+                                    ]
+                                  },
+                                  "url": {
+                                    "description": "The url of the image.",
+                                    "example": "https://example.com/dogs-playing-poker.jpg",
+                                    "type": "string"
+                                  },
+                                  "width": {
+                                    "description": "The width of the image in pixels.",
+                                    "example": 640,
+                                    "type": "number"
+                                  }
+                                },
+                                "required": [
+                                  "@type"
+                                ],
+                                "type": "object"
+                              }
+                            ],
+                            "description": "A named url of an image along with metadata.",
+                            "x-schema-name": "ImageUrlValue"
+                          },
+                          {
+                            "allOf": [
+                              {
+                                "additionalProperties": false,
+                                "description": "Base type for a JSON-LD (Linked Data) object.",
+                                "properties": {
+                                  "@context": {
+                                    "description": "A url describing the schema context for this object, typically \"http://schema.org/\".",
+                                    "example": "http://schema.org/",
+                                    "type": "string"
+                                  },
+                                  "@type": {
+                                    "description": "A schema.org identifier for the object.",
+                                    "enum": [
+                                      "ImageObject",
+                                      "MonetaryAmount",
+                                      "Person",
+                                      "WebPage",
+                                      "StructuredValue"
+                                    ],
+                                    "type": "string",
+                                    "x-schema-name": "LinkedDataType",
+                                    "x-tsEnumNames": [
+                                      "ImageObject",
+                                      "MonetaryAmount",
+                                      "Person",
+                                      "WebPage",
+                                      "StructuredValue"
+                                    ]
+                                  },
+                                  "additionalType": {
+                                    "description": "An identifier of additional type info specific to Coda that may not be present in a schema.org taxonomy,\n",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "@context",
+                                  "@type"
+                                ],
+                                "type": "object",
+                                "x-schema-name": "LinkedDataObject"
+                              },
+                              {
+                                "additionalProperties": false,
+                                "properties": {
+                                  "@type": {
+                                    "enum": [
+                                      "Person"
+                                    ],
+                                    "type": "string",
+                                    "x-tsType": "LinkedDataType.Person"
+                                  },
+                                  "email": {
+                                    "description": "The email address of the person.",
+                                    "example": "alice@atkins.com",
+                                    "type": "string"
+                                  },
+                                  "name": {
+                                    "description": "The full name of the person.",
+                                    "example": "Alice Atkins",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "@type",
+                                  "name"
+                                ],
+                                "type": "object"
+                              }
+                            ],
+                            "description": "A named reference to a person, where the person is identified by email address.",
+                            "x-schema-name": "PersonValue"
+                          },
+                          {
+                            "allOf": [
+                              {
+                                "additionalProperties": false,
+                                "description": "Base type for a JSON-LD (Linked Data) object.",
+                                "properties": {
+                                  "@context": {
+                                    "description": "A url describing the schema context for this object, typically \"http://schema.org/\".",
+                                    "example": "http://schema.org/",
+                                    "type": "string"
+                                  },
+                                  "@type": {
+                                    "description": "A schema.org identifier for the object.",
+                                    "enum": [
+                                      "ImageObject",
+                                      "MonetaryAmount",
+                                      "Person",
+                                      "WebPage",
+                                      "StructuredValue"
+                                    ],
+                                    "type": "string",
+                                    "x-schema-name": "LinkedDataType",
+                                    "x-tsEnumNames": [
+                                      "ImageObject",
+                                      "MonetaryAmount",
+                                      "Person",
+                                      "WebPage",
+                                      "StructuredValue"
+                                    ]
+                                  },
+                                  "additionalType": {
+                                    "description": "An identifier of additional type info specific to Coda that may not be present in a schema.org taxonomy,\n",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "@context",
+                                  "@type"
+                                ],
+                                "type": "object",
+                                "x-schema-name": "LinkedDataObject"
+                              },
+                              {
+                                "additionalProperties": false,
+                                "properties": {
+                                  "@type": {
+                                    "enum": [
+                                      "WebPage"
+                                    ],
+                                    "type": "string",
+                                    "x-tsType": "LinkedDataType.WebPage"
+                                  },
+                                  "name": {
+                                    "description": "The user-visible text of the hyperlink.",
+                                    "example": "Click me",
+                                    "type": "string"
+                                  },
+                                  "url": {
+                                    "description": "The url of the hyperlink.",
+                                    "example": "https://coda.io",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "@type",
+                                  "url"
+                                ],
+                                "type": "object"
+                              }
+                            ],
+                            "description": "A named hyperlink to an arbitrary url.",
+                            "x-schema-name": "UrlValue"
+                          },
+                          {
+                            "allOf": [
+                              {
+                                "additionalProperties": false,
+                                "description": "Base type for a JSON-LD (Linked Data) object.",
+                                "properties": {
+                                  "@context": {
+                                    "description": "A url describing the schema context for this object, typically \"http://schema.org/\".",
+                                    "example": "http://schema.org/",
+                                    "type": "string"
+                                  },
+                                  "@type": {
+                                    "description": "A schema.org identifier for the object.",
+                                    "enum": [
+                                      "ImageObject",
+                                      "MonetaryAmount",
+                                      "Person",
+                                      "WebPage",
+                                      "StructuredValue"
+                                    ],
+                                    "type": "string",
+                                    "x-schema-name": "LinkedDataType",
+                                    "x-tsEnumNames": [
+                                      "ImageObject",
+                                      "MonetaryAmount",
+                                      "Person",
+                                      "WebPage",
+                                      "StructuredValue"
+                                    ]
+                                  },
+                                  "additionalType": {
+                                    "description": "An identifier of additional type info specific to Coda that may not be present in a schema.org taxonomy,\n",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "@context",
+                                  "@type"
+                                ],
+                                "type": "object",
+                                "x-schema-name": "LinkedDataObject"
+                              },
+                              {
+                                "additionalProperties": false,
+                                "properties": {
+                                  "@type": {
+                                    "enum": [
+                                      "StructuredValue"
+                                    ],
+                                    "type": "string",
+                                    "x-tsType": "LinkedDataType.StructuredValue"
+                                  },
+                                  "additionalType": {
+                                    "description": "The type of this resource.",
+                                    "enum": [
+                                      "row"
+                                    ],
+                                    "type": "string",
+                                    "x-tsType": "Type.Row"
+                                  },
+                                  "name": {
+                                    "description": "The display name of the row, based on its identifying column.",
+                                    "example": "Apple",
+                                    "type": "string"
+                                  },
+                                  "rowId": {
+                                    "description": "The ID of the table",
+                                    "example": "i-tuVwxYz",
+                                    "type": "string"
+                                  },
+                                  "tableId": {
+                                    "description": "The ID of the table",
+                                    "example": "grid-pqRst-U",
+                                    "type": "string"
+                                  },
+                                  "tableUrl": {
+                                    "description": "The url of the table.",
+                                    "example": "https://coda.io/d/_dAbCDeFGH#Teams-and-Tasks_tpqRst-U",
+                                    "type": "string"
+                                  },
+                                  "url": {
+                                    "description": "The url of the row.",
+                                    "example": "https://coda.io/d/_dAbCDeFGH#Teams-and-Tasks_tpqRst-U/_rui-tuVwxYz",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "@type",
+                                  "name",
+                                  "url",
+                                  "tableId",
+                                  "tableUrl",
+                                  "rowId",
+                                  "additionalType"
+                                ],
+                                "type": "object"
+                              }
+                            ],
+                            "description": "A value representing a Coda row.",
+                            "x-schema-name": "RowValue"
+                          }
+                        ],
+                        "x-schema-name": "RichSingleValue"
+                      },
+                      {
+                        "items": {
+                          "description": "A value that contains rich structured data. Cell values are composed of these values or arrays of these values.\n",
+                          "discriminator": {
+                            "propertyName": "@type"
+                          },
+                          "oneOf": [
+                            {
+                              "description": "A Coda result or entity expressed as a primitive type.",
+                              "oneOf": [
+                                {
+                                  "example": "$12.34",
+                                  "type": "string"
+                                },
+                                {
+                                  "example": 12.34,
+                                  "type": "number"
+                                },
+                                {
+                                  "example": true,
+                                  "type": "boolean"
+                                }
+                              ],
+                              "x-schema-name": "ScalarValue"
+                            },
+                            {
+                              "allOf": [
+                                {
+                                  "additionalProperties": false,
+                                  "description": "Base type for a JSON-LD (Linked Data) object.",
+                                  "properties": {
+                                    "@context": {
+                                      "description": "A url describing the schema context for this object, typically \"http://schema.org/\".",
+                                      "example": "http://schema.org/",
+                                      "type": "string"
+                                    },
+                                    "@type": {
+                                      "description": "A schema.org identifier for the object.",
+                                      "enum": [
+                                        "ImageObject",
+                                        "MonetaryAmount",
+                                        "Person",
+                                        "WebPage",
+                                        "StructuredValue"
+                                      ],
+                                      "type": "string",
+                                      "x-schema-name": "LinkedDataType",
+                                      "x-tsEnumNames": [
+                                        "ImageObject",
+                                        "MonetaryAmount",
+                                        "Person",
+                                        "WebPage",
+                                        "StructuredValue"
+                                      ]
+                                    },
+                                    "additionalType": {
+                                      "description": "An identifier of additional type info specific to Coda that may not be present in a schema.org taxonomy,\n",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "@context",
+                                    "@type"
+                                  ],
+                                  "type": "object",
+                                  "x-schema-name": "LinkedDataObject"
+                                },
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "@type": {
+                                      "enum": [
+                                        "MonetaryAmount"
+                                      ],
+                                      "type": "string",
+                                      "x-tsType": "LinkedDataType.MonetaryAmount"
+                                    },
+                                    "amount": {
+                                      "description": "A numeric monetary amount as a string or number.",
+                                      "oneOf": [
+                                        {
+                                          "example": "12.99",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "example": 42,
+                                          "type": "number"
+                                        }
+                                      ],
+                                      "x-schema-name": "CurrencyAmount"
+                                    },
+                                    "currency": {
+                                      "description": "The 3-letter currency code.",
+                                      "example": "USD",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "@type",
+                                    "currency",
+                                    "amount"
+                                  ],
+                                  "type": "object"
+                                }
+                              ],
+                              "description": "A monetary value with its associated currency code.",
+                              "x-schema-name": "CurrencyValue"
+                            },
+                            {
+                              "allOf": [
+                                {
+                                  "additionalProperties": false,
+                                  "description": "Base type for a JSON-LD (Linked Data) object.",
+                                  "properties": {
+                                    "@context": {
+                                      "description": "A url describing the schema context for this object, typically \"http://schema.org/\".",
+                                      "example": "http://schema.org/",
+                                      "type": "string"
+                                    },
+                                    "@type": {
+                                      "description": "A schema.org identifier for the object.",
+                                      "enum": [
+                                        "ImageObject",
+                                        "MonetaryAmount",
+                                        "Person",
+                                        "WebPage",
+                                        "StructuredValue"
+                                      ],
+                                      "type": "string",
+                                      "x-schema-name": "LinkedDataType",
+                                      "x-tsEnumNames": [
+                                        "ImageObject",
+                                        "MonetaryAmount",
+                                        "Person",
+                                        "WebPage",
+                                        "StructuredValue"
+                                      ]
+                                    },
+                                    "additionalType": {
+                                      "description": "An identifier of additional type info specific to Coda that may not be present in a schema.org taxonomy,\n",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "@context",
+                                    "@type"
+                                  ],
+                                  "type": "object",
+                                  "x-schema-name": "LinkedDataObject"
+                                },
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "@type": {
+                                      "enum": [
+                                        "ImageObject"
+                                      ],
+                                      "type": "string",
+                                      "x-tsType": "LinkedDataType.ImageObject"
+                                    },
+                                    "height": {
+                                      "description": "The height of the image in pixels.",
+                                      "example": 480,
+                                      "type": "number"
+                                    },
+                                    "name": {
+                                      "description": "The name of the image.",
+                                      "example": "Dogs Playing Poker",
+                                      "type": "string"
+                                    },
+                                    "status": {
+                                      "description": "The status values that an image object can have.",
+                                      "enum": [
+                                        "live",
+                                        "deleted",
+                                        "failed"
+                                      ],
+                                      "type": "string",
+                                      "x-schema-name": "ImageStatus",
+                                      "x-tsEnumNames": [
+                                        "Live",
+                                        "Deleted",
+                                        "Failed"
+                                      ]
+                                    },
+                                    "url": {
+                                      "description": "The url of the image.",
+                                      "example": "https://example.com/dogs-playing-poker.jpg",
+                                      "type": "string"
+                                    },
+                                    "width": {
+                                      "description": "The width of the image in pixels.",
+                                      "example": 640,
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "@type"
+                                  ],
+                                  "type": "object"
+                                }
+                              ],
+                              "description": "A named url of an image along with metadata.",
+                              "x-schema-name": "ImageUrlValue"
+                            },
+                            {
+                              "allOf": [
+                                {
+                                  "additionalProperties": false,
+                                  "description": "Base type for a JSON-LD (Linked Data) object.",
+                                  "properties": {
+                                    "@context": {
+                                      "description": "A url describing the schema context for this object, typically \"http://schema.org/\".",
+                                      "example": "http://schema.org/",
+                                      "type": "string"
+                                    },
+                                    "@type": {
+                                      "description": "A schema.org identifier for the object.",
+                                      "enum": [
+                                        "ImageObject",
+                                        "MonetaryAmount",
+                                        "Person",
+                                        "WebPage",
+                                        "StructuredValue"
+                                      ],
+                                      "type": "string",
+                                      "x-schema-name": "LinkedDataType",
+                                      "x-tsEnumNames": [
+                                        "ImageObject",
+                                        "MonetaryAmount",
+                                        "Person",
+                                        "WebPage",
+                                        "StructuredValue"
+                                      ]
+                                    },
+                                    "additionalType": {
+                                      "description": "An identifier of additional type info specific to Coda that may not be present in a schema.org taxonomy,\n",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "@context",
+                                    "@type"
+                                  ],
+                                  "type": "object",
+                                  "x-schema-name": "LinkedDataObject"
+                                },
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "@type": {
+                                      "enum": [
+                                        "Person"
+                                      ],
+                                      "type": "string",
+                                      "x-tsType": "LinkedDataType.Person"
+                                    },
+                                    "email": {
+                                      "description": "The email address of the person.",
+                                      "example": "alice@atkins.com",
+                                      "type": "string"
+                                    },
+                                    "name": {
+                                      "description": "The full name of the person.",
+                                      "example": "Alice Atkins",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "@type",
+                                    "name"
+                                  ],
+                                  "type": "object"
+                                }
+                              ],
+                              "description": "A named reference to a person, where the person is identified by email address.",
+                              "x-schema-name": "PersonValue"
+                            },
+                            {
+                              "allOf": [
+                                {
+                                  "additionalProperties": false,
+                                  "description": "Base type for a JSON-LD (Linked Data) object.",
+                                  "properties": {
+                                    "@context": {
+                                      "description": "A url describing the schema context for this object, typically \"http://schema.org/\".",
+                                      "example": "http://schema.org/",
+                                      "type": "string"
+                                    },
+                                    "@type": {
+                                      "description": "A schema.org identifier for the object.",
+                                      "enum": [
+                                        "ImageObject",
+                                        "MonetaryAmount",
+                                        "Person",
+                                        "WebPage",
+                                        "StructuredValue"
+                                      ],
+                                      "type": "string",
+                                      "x-schema-name": "LinkedDataType",
+                                      "x-tsEnumNames": [
+                                        "ImageObject",
+                                        "MonetaryAmount",
+                                        "Person",
+                                        "WebPage",
+                                        "StructuredValue"
+                                      ]
+                                    },
+                                    "additionalType": {
+                                      "description": "An identifier of additional type info specific to Coda that may not be present in a schema.org taxonomy,\n",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "@context",
+                                    "@type"
+                                  ],
+                                  "type": "object",
+                                  "x-schema-name": "LinkedDataObject"
+                                },
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "@type": {
+                                      "enum": [
+                                        "WebPage"
+                                      ],
+                                      "type": "string",
+                                      "x-tsType": "LinkedDataType.WebPage"
+                                    },
+                                    "name": {
+                                      "description": "The user-visible text of the hyperlink.",
+                                      "example": "Click me",
+                                      "type": "string"
+                                    },
+                                    "url": {
+                                      "description": "The url of the hyperlink.",
+                                      "example": "https://coda.io",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "@type",
+                                    "url"
+                                  ],
+                                  "type": "object"
+                                }
+                              ],
+                              "description": "A named hyperlink to an arbitrary url.",
+                              "x-schema-name": "UrlValue"
+                            },
+                            {
+                              "allOf": [
+                                {
+                                  "additionalProperties": false,
+                                  "description": "Base type for a JSON-LD (Linked Data) object.",
+                                  "properties": {
+                                    "@context": {
+                                      "description": "A url describing the schema context for this object, typically \"http://schema.org/\".",
+                                      "example": "http://schema.org/",
+                                      "type": "string"
+                                    },
+                                    "@type": {
+                                      "description": "A schema.org identifier for the object.",
+                                      "enum": [
+                                        "ImageObject",
+                                        "MonetaryAmount",
+                                        "Person",
+                                        "WebPage",
+                                        "StructuredValue"
+                                      ],
+                                      "type": "string",
+                                      "x-schema-name": "LinkedDataType",
+                                      "x-tsEnumNames": [
+                                        "ImageObject",
+                                        "MonetaryAmount",
+                                        "Person",
+                                        "WebPage",
+                                        "StructuredValue"
+                                      ]
+                                    },
+                                    "additionalType": {
+                                      "description": "An identifier of additional type info specific to Coda that may not be present in a schema.org taxonomy,\n",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "@context",
+                                    "@type"
+                                  ],
+                                  "type": "object",
+                                  "x-schema-name": "LinkedDataObject"
+                                },
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "@type": {
+                                      "enum": [
+                                        "StructuredValue"
+                                      ],
+                                      "type": "string",
+                                      "x-tsType": "LinkedDataType.StructuredValue"
+                                    },
+                                    "additionalType": {
+                                      "description": "The type of this resource.",
+                                      "enum": [
+                                        "row"
+                                      ],
+                                      "type": "string",
+                                      "x-tsType": "Type.Row"
+                                    },
+                                    "name": {
+                                      "description": "The display name of the row, based on its identifying column.",
+                                      "example": "Apple",
+                                      "type": "string"
+                                    },
+                                    "rowId": {
+                                      "description": "The ID of the table",
+                                      "example": "i-tuVwxYz",
+                                      "type": "string"
+                                    },
+                                    "tableId": {
+                                      "description": "The ID of the table",
+                                      "example": "grid-pqRst-U",
+                                      "type": "string"
+                                    },
+                                    "tableUrl": {
+                                      "description": "The url of the table.",
+                                      "example": "https://coda.io/d/_dAbCDeFGH#Teams-and-Tasks_tpqRst-U",
+                                      "type": "string"
+                                    },
+                                    "url": {
+                                      "description": "The url of the row.",
+                                      "example": "https://coda.io/d/_dAbCDeFGH#Teams-and-Tasks_tpqRst-U/_rui-tuVwxYz",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "@type",
+                                    "name",
+                                    "url",
+                                    "tableId",
+                                    "tableUrl",
+                                    "rowId",
+                                    "additionalType"
+                                  ],
+                                  "type": "object"
+                                }
+                              ],
+                              "description": "A value representing a Coda row.",
+                              "x-schema-name": "RowValue"
+                            }
+                          ],
+                          "x-schema-name": "RichSingleValue"
+                        },
+                        "type": "array"
+                      }
+                    ]
+                  },
+                  "type": "array"
+                }
+              ],
+              "x-schema-name": "RichValue"
+            }
+          ],
+          "x-schema-name": "CellValue"
         },
         "description": "Values for a specific row, represented as a hash of column IDs (or names with `useColumnNames`) to values.\n",
         "type": [
