@@ -10,9 +10,9 @@ pytest_plugins = "pytester"
 
 XFAIL_SCHEMA_MISMATCH = pytest.mark.xfail(reason="Schema mismatch against OpenAPI spec")
 SCHEMA_MISMATCH: set[str] = {
-    "columns",
-    "rows",
-    "tables",
+    "test_tap_stream_record_matches_stream_schema[[]columns[]]",
+    "test_tap_stream_record_matches_stream_schema[[]rows[]]",
+    "test_tap_stream_record_matches_stream_schema[[]tables[]]",
 }
 
 
