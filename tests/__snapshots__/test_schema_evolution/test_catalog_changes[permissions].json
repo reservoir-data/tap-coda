@@ -67,14 +67,17 @@
               "email": {
                 "description": "Email for the principal.",
                 "example": "example@domain.com",
-                "type": "string"
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
               "type": {
                 "description": "The type of this principal.",
-                "enum": [
-                  "email"
+                "type": [
+                  "string",
+                  "null"
                 ],
-                "type": "string",
                 "x-tsType": "PrincipalType.Email"
               }
             },
@@ -82,7 +85,10 @@
               "email",
               "type"
             ],
-            "type": "object"
+            "type": [
+              "object",
+              "null"
+            ]
           },
           {
             "additionalProperties": false,
@@ -90,19 +96,25 @@
               "groupId": {
                 "description": "Group ID for the principal.",
                 "example": "grp-6SM9xrKcqW",
-                "type": "string"
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
               "groupName": {
                 "description": "Name of the group.",
                 "example": "Marketing team",
-                "type": "string"
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
               "type": {
                 "description": "The type of this principal.",
-                "enum": [
-                  "group"
+                "type": [
+                  "string",
+                  "null"
                 ],
-                "type": "string",
                 "x-tsType": "PrincipalType.Group"
               }
             },
@@ -111,7 +123,10 @@
               "groupName",
               "type"
             ],
-            "type": "object"
+            "type": [
+              "object",
+              "null"
+            ]
           },
           {
             "additionalProperties": false,
@@ -119,14 +134,17 @@
               "domain": {
                 "description": "Domain for the principal.",
                 "example": "domain.com",
-                "type": "string"
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
               "type": {
                 "description": "The type of this principal.",
-                "enum": [
-                  "domain"
+                "type": [
+                  "string",
+                  "null"
                 ],
-                "type": "string",
                 "x-tsType": "PrincipalType.Domain"
               }
             },
@@ -134,47 +152,59 @@
               "domain",
               "type"
             ],
-            "type": "object"
+            "type": [
+              "object",
+              "null"
+            ]
           },
           {
             "additionalProperties": false,
             "properties": {
               "type": {
                 "description": "The type of this principal.",
-                "enum": [
-                  "workspace"
+                "type": [
+                  "string",
+                  "null"
                 ],
-                "type": "string",
                 "x-tsType": "PrincipalType.Workspace"
               },
               "workspaceId": {
                 "description": "WorkspaceId for the principal.",
                 "example": "ws-sdfmsdf9",
-                "type": "string"
+                "type": [
+                  "string",
+                  "null"
+                ]
               }
             },
             "required": [
               "type",
               "workspaceId"
             ],
-            "type": "object"
+            "type": [
+              "object",
+              "null"
+            ]
           },
           {
             "additionalProperties": false,
             "properties": {
               "type": {
                 "description": "The type of this principal.",
-                "enum": [
-                  "anyone"
+                "type": [
+                  "string",
+                  "null"
                 ],
-                "type": "string",
                 "x-tsType": "PrincipalType.Anyone"
               }
             },
             "required": [
               "type"
             ],
-            "type": "object"
+            "type": [
+              "object",
+              "null"
+            ]
           },
           {
             "additionalProperties": false,
@@ -182,14 +212,17 @@
               "internalAccessType": {
                 "description": "The type of internal access (e.g., support).",
                 "example": "support",
-                "type": "string"
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
               "type": {
                 "description": "The type of this principal.",
-                "enum": [
-                  "internalAccess"
+                "type": [
+                  "string",
+                  "null"
                 ],
-                "type": "string",
                 "x-tsType": "PrincipalType.InternalAccess"
               }
             },
@@ -197,7 +230,10 @@
               "type",
               "internalAccessType"
             ],
-            "type": "object"
+            "type": [
+              "object",
+              "null"
+            ]
           }
         ]
       }

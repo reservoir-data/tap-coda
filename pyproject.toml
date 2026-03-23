@@ -14,7 +14,7 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",
 ]
-dependencies = ["singer-sdk~=0.54.0a4"]
+dependencies = ["singer-sdk~=0.54.0a8"]
 
 [project.scripts]
 tap-coda = "tap_coda.tap:TapCoda.cli"

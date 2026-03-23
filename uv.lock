@@ -646,7 +646,7 @@ typing = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "singer-sdk", specifier = "~=0.54.0a4" }]
+requires-dist = [{ name = "singer-sdk", specifier = "~=0.54.0a8" }]
 
 [package.metadata.requires-dev]
 dev = [
