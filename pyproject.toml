@@ -37,7 +37,7 @@ warn_unused_configs = true
 warn_unused_ignores = true
 
 [tool.pytest]
-addopts = ["-ra", "--strict-config", "--strict-markers"]
+addopts = ["-ra"]
 filterwarnings = [
     "error",
     "once:Fields in transformed catalog but not in records:UserWarning",
@@ -46,7 +46,6 @@ log_level = "INFO"
 minversion = "9"
 strict = true
 testpaths = ["tests"]
-xfail_strict = true
 
 [tool.ruff]
 line-length = 88
