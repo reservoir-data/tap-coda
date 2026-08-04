@@ -17,6 +17,7 @@ classifiers = [
   "Programming Language :: Python :: 3 :: Only",
   "Programming Language :: Python :: 3.13",
   "Programming Language :: Python :: 3.14",
+  "Programming Language :: Python :: 3.15",
 ]
 dynamic = [ "version" ]
 dependencies = [
@@ -56,15 +57,14 @@ preview = true
 [tool.ruff.lint]
 select = [ "ALL" ]
 ignore = [
-  "COM812", # missing-trailing-comma
-  "DJ",     # flake8-django
-  "FIX002", # line-contains-todo
-  "ISC001", # single-line-implicit-string-concatenation
+  "missing-trailing-comma",
+  "line-contains-todo",
+  "single-line-implicit-string-concatenation",
 ]
 per-file-ignores."noxfile.py" = [ "ANN" ]
-per-file-ignores."tests/*" = [ "ANN", "S101" ]
+per-file-ignores."tests/*" = [ "ANN", "assert" ]
 unfixable = [
-  "ERA001", # commented-out-code
+  "commented-out-code",
 ]
 flake8-annotations.allow-star-arg-any = true
 isort.known-first-party = [ "tap_superhuman" ]
@@ -72,6 +72,7 @@ isort.required-imports = [ "from __future__ import annotations" ]
 pydocstyle.convention = "google"
 
 [tool.pyproject-fmt]
+max_supported_python = "3.15"
 table_format = "long"
 
 [tool.mypy]

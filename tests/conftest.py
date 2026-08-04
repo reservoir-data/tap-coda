@@ -1,4 +1,4 @@
-"""Pytest configuration for tests in this directory."""  # noqa: CPY001
+"""Pytest configuration for tests in this directory."""  # ruff: ignore[missing-copyright-notice]
 
 from __future__ import annotations
 

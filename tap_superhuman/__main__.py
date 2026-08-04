@@ -1,4 +1,4 @@
-"""Tap executable."""  # noqa: CPY001
+"""Tap executable."""  # ruff: ignore[missing-copyright-notice]
 
 from __future__ import annotations
 

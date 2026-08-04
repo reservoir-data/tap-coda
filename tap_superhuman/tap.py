@@ -1,4 +1,4 @@
-"""Superhuman Docs tap class."""  # noqa: CPY001
+"""Superhuman Docs tap class."""  # ruff: ignore[missing-copyright-notice]
 
 from __future__ import annotations
 

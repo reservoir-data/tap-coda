@@ -1,4 +1,4 @@
-"""Tests standard tap features using the built-in SDK tests library."""  # noqa: CPY001
+"""Tests standard tap features using the built-in SDK tests library."""  # ruff: ignore[missing-copyright-notice]
 
 from __future__ import annotations
 
@@ -16,6 +16,6 @@ TestTapSuperhuman = get_tap_test_class(
     suite_config=SuiteConfig(
         ignore_no_records=True,
     ),
-    # TODO: Enable this test after the SDK handles AllOf properties.  # noqa: TD002, TD003
+    # TODO: Enable this test after the SDK handles AllOf properties.  # ruff: ignore[missing-todo-author, missing-todo-link]
     include_stream_attribute_tests=True,
 )

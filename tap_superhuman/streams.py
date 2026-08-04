@@ -1,4 +1,4 @@
-"""Stream type classes for tap-superhuman."""  # noqa: CPY001
+"""Stream type classes for tap-superhuman."""  # ruff: ignore[missing-copyright-notice]
 
 from __future__ import annotations
 
@@ -25,7 +25,7 @@ class SuperhumanStream(RESTStream[str]):
 
     url_base = "https://coda.io/apis/v1"
     records_jsonpath = "$.items[*]"
-    next_page_token_jsonpath = "$.nextPageToken"  # noqa: S105
+    next_page_token_jsonpath = "$.nextPageToken"  # ruff: ignore[hardcoded-password-string]
     primary_keys = ("id",)
     replication_key = None
 

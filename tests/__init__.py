@@ -1,1 +1,1 @@
-"""Test suite for tap-superhuman."""  # noqa: CPY001
+"""Test suite for tap-superhuman."""  # ruff: ignore[missing-copyright-notice]
